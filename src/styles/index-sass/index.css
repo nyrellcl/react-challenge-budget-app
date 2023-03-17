@@ -141,7 +141,7 @@ h2 {
   font-weight: 700;
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 768px) {
   .nav-bar {
     justify-content: space-between;
   }
@@ -149,15 +149,17 @@ h2 {
     display: none;
   }
   .nav-bar__list {
-    font-size: 1rem;
     flex-direction: row;
-    height: auto;
-    justify-content: flex-end;
     opacity: 1;
-    position: static;
+    justify-content: flex-end;
     width: auto;
     padding-top: 0;
+    height: auto;
+    position: static;
+    font-size: 1rem;
   }
+}
+@media only screen and (min-width: 968px) {
   .nav-bar__list li a {
     transition: all 250ms linear;
   }
