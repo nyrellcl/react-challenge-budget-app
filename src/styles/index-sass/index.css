@@ -24,12 +24,6 @@ h2 {
   font-weight: 700;
 }
 
-svg {
-  fill: #FFFBF6;
-  height: 1.5em;
-  width: 1.5em;
-}
-
 .header-bar {
   position: -webkit-sticky;
   position: sticky;
@@ -41,15 +35,15 @@ svg {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: #EC755D;
 }
 .nav-bar__icon {
   z-index: 10;
-  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  fill: #FFFBF6;
 }
 .nav-bar__list {
   display: flex;
@@ -130,7 +124,7 @@ svg {
 
 @media only screen and (min-width: 768px) {
   .nav-bar {
-    justify-content: flex-end;
+    justify-content: space-between;
   }
   .nav-bar__icon {
     display: none;

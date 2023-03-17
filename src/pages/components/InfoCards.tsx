@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import data from "../../data.json";
 import {DM_Sans} from 'next/font/google'
-import { faMoneyBillTrendUp } from "@fortawesome/free-solid-svg-icons";
+
 
 const dmSans = DM_Sans({subsets: ['latin'],
 weight: ['400', '500', '700']})
@@ -33,7 +33,7 @@ function InfoCards() {
               More Info
             </button>
             {cardStates[itemIndex] && (
-              <>
+              <article className="info__container__card__content">
                 <p>{item.description}</p>
                 <ul className="info__container__card__sources">
                   {item.sources.map((source, sourceIndex) => (
@@ -44,7 +44,7 @@ function InfoCards() {
                     </li>
                   ))}
                 </ul>
-              </>
+              </article>
             )}
           </div>
         ))}

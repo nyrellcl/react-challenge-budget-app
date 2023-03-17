@@ -37,12 +37,6 @@ h2 {
   font-weight: 700;
 }
 
-svg {
-  fill: $card-bg;
-  height: 1.5em;
-  width: 1.5em;
-}
-
 .header-bar {
   position: sticky;
   top: 0;
@@ -53,14 +47,14 @@ svg {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: $red;
   &__icon {
     z-index: 10;
-    width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    fill: $card-bg;
   }
   &__list {
     display: flex;
@@ -144,7 +138,7 @@ svg {
 
 @media only screen and (min-width: 768px) {
   .nav-bar {
-    justify-content: flex-end;
+    justify-content: space-between;
     &__icon {
       display: none;
     }
