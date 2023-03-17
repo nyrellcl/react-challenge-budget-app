@@ -84,6 +84,13 @@ h2 {
   justify-content: center;
   padding-top: 2rem;
 }
+.main-app .info h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  padding: 2rem 0;
+  font-weight: 700;
+  letter-spacing: 0.0625rem;
+}
 .main-app .info__container {
   display: flex;
   flex-direction: column;

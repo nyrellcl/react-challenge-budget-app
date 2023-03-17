@@ -24,16 +24,21 @@ function InfoCards() {
         `}
     </style>
 
+    
+
     <section className="info">
       <article className="info__container">
         {data.content.map((item, itemIndex) => (
           <div key={itemIndex} className="info__container__card">
+            {/*eslint-disable-next-line @next/next/no-img-element*/}
+            <img src={item.img} alt={item.title} />
             <h2>{item.title}</h2>
             <button className="info-btn" type="button" onClick={() => handleInfo(itemIndex)}>
               More Info
             </button>
             {cardStates[itemIndex] && (
               <article className="info__container__card__content">
+                
                 <p>{item.description}</p>
                 <ul className="info__container__card__sources">
                   {item.sources.map((source, sourceIndex) => (

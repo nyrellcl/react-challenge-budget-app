@@ -96,6 +96,13 @@ h2 {
     flex-direction: column;
     justify-content: center;
     padding-top: 2rem;
+    h1{
+        text-align: center;
+        font-size: rem(40);
+        padding: 2rem 0;
+        font-weight: 700;
+        letter-spacing: rem(1);
+    }
     &__container {
       display: flex;
       flex-direction: column;
