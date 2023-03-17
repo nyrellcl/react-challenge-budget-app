@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import InfoCards from './InfoCards'
+import InfoCards from './components/InfoCards'
+import Nav from './components/layout'
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
 
 
       </Head>
+      <Nav/>
       <main className='main-app'>
         <InfoCards/>
       </main>

@@ -6,6 +6,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  text-decoration: none;
 }
 
 html,
@@ -21,6 +22,60 @@ ul {
 
 h2 {
   font-weight: 700;
+}
+
+svg {
+  fill: #FFFBF6;
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.header-bar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem;
+  background-color: #EC755D;
+}
+.nav-bar__icon {
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.nav-bar__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  top: -100%;
+  text-align: center;
+  transition: all 0.3s linear;
+  opacity: 0;
+  left: 0;
+  position: fixed;
+  gap: 2rem;
+  height: 100vh;
+  background-color: #EC755D;
+  padding-top: 5rem;
+  font-size: 2rem;
+}
+.nav-bar__list li a {
+  color: #FFFBF6;
+  font-weight: 700;
+}
+.nav-bar__list.active {
+  opacity: 0.98;
+  top: 0;
+  z-index: 3;
 }
 
 .main-app {
@@ -45,10 +100,11 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 0.625rem;
+  border-radius: 1.25rem;
   background-color: #FFFBF6;
   gap: 2rem;
   padding: 2rem;
+  letter-spacing: 0.0625rem;
 }
 .main-app .info__container__card h2 {
   padding: 2rem 0;
@@ -57,6 +113,12 @@ h2 {
   letter-spacing: 0.0625rem;
   text-align: center;
 }
+.main-app .info__container__card__sources {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
 .main-app .info__container__card .info-btn {
   padding: 0.9375rem;
   border-radius: 0.5rem;
@@ -64,4 +126,37 @@ h2 {
   background-color: #76B5BC;
   color: white;
   font-weight: 700;
+}
+
+@media only screen and (min-width: 768px) {
+  .nav-bar {
+    justify-content: flex-end;
+  }
+  .nav-bar__icon {
+    display: none;
+  }
+  .nav-bar__list {
+    font-size: 1rem;
+    flex-direction: row;
+    height: auto;
+    justify-content: flex-end;
+    opacity: 1;
+    position: static;
+    width: auto;
+    padding-top: 0;
+  }
+  .main-app .info {
+    flex-direction: row;
+  }
+  .main-app .info__container {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+  .main-app .info__container__card {
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+  }
 }/*# sourceMappingURL=index.css.map */
