@@ -109,6 +109,7 @@ h2 {
         background-color: $card-bg;
         gap: 2rem;
         padding: 2rem;
+        text-align: center;
         letter-spacing: rem(1);
         h2 {
           padding: 2rem 0;
@@ -122,6 +123,8 @@ h2 {
           align-items: center;
           justify-content: space-evenly;
           width: 100%;
+          margin-top: 1rem;
+          font-size: rem(14);
         }
         .info-btn {
           padding: rem(15);
@@ -136,7 +139,7 @@ h2 {
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1200px) {
   .nav-bar {
     justify-content: space-between;
     &__icon {
@@ -162,12 +165,23 @@ h2 {
         align-items: center;
         width: 100%;
         &__card {
-          text-align: center;
           justify-content: center;
           width: 100%;
-          height: 50%;
+          .info-btn{
+            cursor: pointer;
+            transition: all 250ms linear;
+            &:hover{
+                border: 1px solid $cyan;
+                background-color: transparent;
+                color: $cyan;
+            }
+            &:active{
+                transform: translateY(3px);
+            }
+          }
         }
       }
     }
   }
 }
+

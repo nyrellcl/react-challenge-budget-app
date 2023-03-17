@@ -1,36 +1,56 @@
-
-
 {
-    "content": [
-      {
-        "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path d='M470.7 9.4c3 3.1 5.3 6.6 6.9 10.3s2.4 7.8 2.4 12.2l0 .1v0 96c0 17.7-14.3 32-32 32s-32-14.3-32-32V109.3L310.6 214.6c-11.8 11.8-30.8 12.6-43.5 1.7L176 138.1 84.8 216.3c-13.4 11.5-33.6 9.9-45.1-3.5s-9.9-33.6 3.5-45.1l112-96c12-10.3 29.7-10.3 41.7 0l89.5 76.7L370.7 64H352c-17.7 0-32-14.3-32-32s14.3-32 32-32h96 0c8.8 0 16.8 3.6 22.6 9.3l.1 .1zM0 304c0-26.5 21.5-48 48-48H464c26.5 0 48 21.5 48 48V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V304zM48 416v48H96c0-26.5-21.5-48-48-48zM96 304H48v48c26.5 0 48-21.5 48-48zM464 416c-26.5 0-48 21.5-48 48h48V416zM416 304c0 26.5 21.5 48 48 48V304H416zm-96 80a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z'/></svg>",
-        "title": "Introduction to Investing",
-        "description": "Investing is the act of allocating resources, usually money, with the expectation of generating an income or profit. There are many different types of investments, including stocks, bonds, real estate, and commodities. Before investing, it's important to research and understand the risks involved, as well as your investment goals and strategies. It's also important to diversify your portfolio to help minimize risk and maximize potential returns.",
-        "sources": [
-          {"name" : "Bloomberg", "url": "https://www.bloomberg.com/personal-finance/investing"},
-          {"name": "Investopedia", "url": "https://www.investopedia.com/terms/i/investing.asp"},
-          {"name": "Morningstar", "url": "https://www.morningstar.com/articles/484082/investing-basics"}
-        ]
-      },
-      {
-        "title": "Personal Finance Basics",
-        "description": "Personal finance refers to the management of one's financial resources, including income, expenses, savings, and investments. It's important to create a budget and stick to it, as well as track your expenses to identify areas where you can cut back. It's also important to establish an emergency fund to help cover unexpected expenses, such as medical bills or car repairs. When it comes to investing, consider your risk tolerance and time horizon, and consult with a financial advisor if needed.",
-        "sources": [
-          {"name": "Consumer Finance", "url": "https://www.consumerfinance.gov/start-small-save-up/"},
-          {"name": "Nerd Wallet", "url": "https://www.nerdwallet.com/article/finance/financial-advice" },
-          {"name": "Simple Dollar", "url": "https://www.thesimpledollar.com/save-money/the-best-personal-finance-blogs/"}
-          
-        ]
-      },
-      {
-        "title": "Budgeting 101",
-        "description": "Budgeting is the process of creating a plan for your income and expenses, with the goal of maximizing your financial resources. To create a budget, start by tracking your expenses and identifying areas where you can cut back. Then, allocate your income to different categories, such as housing, transportation, food, and entertainment. It's important to prioritize your spending based on your needs and goals, and to adjust your budget as necessary. By sticking to a budget, you can avoid overspending and work towards your financial goals.",
-        "sources": [
-          {"name": "My Credit Union", "url": "https://www.mycreditunion.gov/financial-resources/my-money/budgeting"},
-          {"name": "The Balance", "url": "https://www.thebalance.com/budgeting-basics-for-beginners-1289581"},
-          {"name": "YNAB", "url": "https://www.ynab.com/budget-better/"}
-        ]
-      }
-    ]
-  }
-  
+  "content": [
+    {
+      "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path d='M470.7 9.4c3 3.1 5.3 6.6 6.9 10.3s2.4 7.8 2.4 12.2l0 .1v0 96c0 17.7-14.3 32-32 32s-32-14.3-32-32V109.3L310.6 214.6c-11.8 11.8-30.8 12.6-43.5 1.7L176 138.1 84.8 216.3c-13.4 11.5-33.6 9.9-45.1-3.5s-9.9-33.6 3.5-45.1l112-96c12-10.3 29.7-10.3 41.7 0l89.5 76.7L370.7 64H352c-17.7 0-32-14.3-32-32s14.3-32 32-32h96 0c8.8 0 16.8 3.6 22.6 9.3l.1 .1zM0 304c0-26.5 21.5-48 48-48H464c26.5 0 48 21.5 48 48V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V304zM48 416v48H96c0-26.5-21.5-48-48-48zM96 304H48v48c26.5 0 48-21.5 48-48zM464 416c-26.5 0-48 21.5-48 48h48V416zM416 304c0 26.5 21.5 48 48 48V304H416zm-96 80a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z'/></svg>",
+      "title": "Introduction to Investing",
+      "description": "Investing is the act of allocating resources, usually money, with the expectation of generating an income or profit. There are many different types of investments, including stocks, bonds, real estate, and commodities. Before investing, it's important to research and understand the risks involved, as well as your investment goals and strategies. It's also important to diversify your portfolio to help minimize risk and maximize potential returns.",
+      "sources": [
+        {
+          "name": "Bloomberg",
+          "url": "https://www.bloomberg.com/personal-finance/investing"
+        },
+        {
+          "name": "Investopedia",
+          "url": "https://www.investopedia.com/terms/i/investing.asp"
+        },
+        {
+          "name": "Morningstar",
+          "url": "https://www.morningstar.com/articles/484082/investing-basics"
+        }
+      ]
+    },
+    {
+      "title": "Personal Finance Basics",
+      "description": "Personal finance refers to the management of one's financial resources, including income, expenses, savings, and investments. It's important to create a budget and stick to it, as well as track your expenses to identify areas where you can cut back. It's also important to establish an emergency fund to help cover unexpected expenses, such as medical bills or car repairs. When it comes to investing, consider your risk tolerance and time horizon, and consult with a financial advisor if needed.",
+      "sources": [
+        {
+          "name": "Consumer Finance",
+          "url": "https://www.consumerfinance.gov/start-small-save-up/"
+        },
+        {
+          "name": "Nerd Wallet",
+          "url": "https://www.nerdwallet.com/article/finance/financial-advice"
+        },
+        {
+          "name": "Simple Dollar",
+          "url": "https://www.thesimpledollar.com/save-money/the-best-personal-finance-blogs/"
+        }
+      ]
+    },
+    {
+      "title": "Budgeting 101",
+      "description": "Budgeting is the process of creating a plan for your income and expenses, with the goal of maximizing your financial resources. To create a budget, start by tracking your expenses and identifying areas where you can cut back. Then, allocate your income to different categories, such as housing, transportation, and food. It's important to prioritize your spending based on your needs and goals, and to adjust accordingly. By sticking to a budget, you can avoid overspending and work towards your financial goals.",
+      "sources": [
+        {
+          "name": "My Credit Union",
+          "url": "https://www.mycreditunion.gov/financial-resources/my-money/budgeting"
+        },
+        {
+          "name": "The Balance",
+          "url": "https://www.thebalance.com/budgeting-basics-for-beginners-1289581"
+        },
+        { "name": "YNAB", "url": "https://www.ynab.com/budget-better/" }
+      ]
+    }
+  ]
+}
