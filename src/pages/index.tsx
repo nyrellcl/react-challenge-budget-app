@@ -1,8 +1,14 @@
 import Head from "next/head";
 import InfoCards from "./components/InfoCards";
-import { Nav, Footer } from "./components/layout";
+import { Nav } from "./components/layout";
+import { useEffect } from "react";
 
 export default function Home() {
+
+  useEffect(()=>{
+    alert("The following information is not financial advice, but merely resources for your reference.")
+  }, [])
+  
   return (
     <>
       <Head>
