@@ -1,7 +1,6 @@
-import Head from 'next/head'
-import InfoCards from './components/InfoCards'
-import Nav from './components/layout'
-
+import Head from "next/head";
+import InfoCards from "./components/InfoCards";
+import { Nav, Footer } from "./components/layout";
 
 export default function Home() {
   return (
@@ -11,13 +10,11 @@ export default function Home() {
         <meta name="description" content="React challenges by ChatGPT" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-
-
       </Head>
-      <Nav/>
-      <main className='main-app'>
-        <InfoCards/>
+      <Nav />
+      <main className="main-app">
+        <InfoCards />
       </main>
     </>
-  )
+  );
 }

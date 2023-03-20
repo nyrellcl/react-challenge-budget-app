@@ -1,8 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap");
-#__next {
-  height: 100%;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -173,6 +169,24 @@ h2 {
   font-weight: 700;
 }
 
+.footer-section {
+  background-color: #1D1E25;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+.footer-section .footer-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+.footer-section .footer-list a {
+  color: white;
+}
+
 @media only screen and (min-width: 768px) {
   .nav-bar {
     justify-content: space-between;
@@ -214,6 +228,9 @@ h2 {
     padding-left: 0;
   }
   .intro__img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 90%;
   }
   .intro__img-container__image {
@@ -266,5 +283,13 @@ h2 {
   }
   .main-app .info__container__card .info-btn:active {
     transform: translateY(3px);
+  }
+  .footer-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .footer-section .footer-list {
+    flex-direction: row;
   }
 }/*# sourceMappingURL=index.css.map */
