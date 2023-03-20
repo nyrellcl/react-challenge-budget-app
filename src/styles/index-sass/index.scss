@@ -1,5 +1,6 @@
 @use "sass:math";
 @import "./Global-sass/colors";
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap");
 
 @function rem($number) {
   @if unitless($number) {
@@ -26,6 +27,7 @@ html,
 body {
   height: 100%;
   min-width: rem(375);
+  font-family: "Be Vietnam", sans-serif;
   background-color: $bg;
 }
 
@@ -37,9 +39,14 @@ h2 {
   font-weight: 700;
 }
 
+.none {
+  display: none;
+}
+
 .header-bar {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 }
 
 .nav-bar {
@@ -49,6 +56,7 @@ h2 {
   width: 100%;
   padding: 1.5rem;
   background-color: $red;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.22);
   &__icon {
     z-index: 10;
     display: flex;
@@ -86,27 +94,48 @@ h2 {
   }
 }
 
+.intro {
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: 5rem 0;
+  h1 {
+    font-weight: 700;
+    color: $heading;
+    font-size: rem(40);
+    line-height: rem(50);
+    letter-spacing: rem(1);
+  }
+  p {
+    line-height: rem(28);
+    padding: 1rem;
+  }
+  &__img-container {
+    width: 100%;
+    padding-bottom: 2.5rem;
+    &__image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
 .main-app {
+    padding-top: 4rem;
   height: 100%;
   .info {
     width: 90%;
     margin: 0 auto;
-    height: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-top: 2rem;
-    h1{
-        text-align: center;
-        font-size: rem(40);
-        padding: 2rem 0;
-        font-weight: 700;
-        letter-spacing: rem(1);
-    }
+    padding-bottom: 2rem;
     &__container {
       display: flex;
       flex-direction: column;
-      height: 100%;
+      height: auto;
       gap: 2rem;
       &__card {
         display: flex;
@@ -118,12 +147,16 @@ h2 {
         padding: 2rem;
         text-align: center;
         letter-spacing: rem(1);
+        height: 100%;
         h2 {
           padding: 2rem 0;
+          color: $heading;
+          font-size: rem(30);
         }
         p {
           letter-spacing: rem(1);
           text-align: center;
+          line-height: rem(28);
         }
         &__sources {
           display: flex;
@@ -155,23 +188,23 @@ h2 {
   }
 }
 
-@media only screen and (min-width: 768px){
-    .nav-bar {
-        justify-content: space-between;
-        &__icon {
-          display: none;
-        }
-        &__list{
-            flex-direction: row;
-            opacity: 1;
-            justify-content: flex-end;
-            width: auto;
-            padding-top: 0;
-            height: auto;
-            position: static;
-            font-size: 1rem;
-        }
+@media only screen and (min-width: 768px) {
+  .nav-bar {
+    justify-content: space-between;
+    &__icon {
+      display: none;
     }
+    &__list {
+      flex-direction: row;
+      opacity: 1;
+      justify-content: flex-end;
+      width: auto;
+      padding-top: 0;
+      height: auto;
+      position: static;
+      font-size: 1rem;
+    }
+  }
 }
 
 @media only screen and (min-width: 968px) {
@@ -188,6 +221,30 @@ h2 {
     }
   }
 
+  .intro {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    text-align: left;
+    gap: 1rem;
+    h1 {
+      font-size: rem(56);
+      line-height: 4.5rem;
+    }
+    p {
+      padding-right: 5rem;
+      padding-left: 0;
+    }
+    &__img-container {
+        width: 90%;
+        &__image {
+          width: 90%;
+          height: 90%;
+          margin: 0 auto;
+        }
+      }
+  }
+
   .main-app {
     .info {
       flex-direction: row;
@@ -195,9 +252,20 @@ h2 {
         flex-direction: row;
         align-items: center;
         width: 100%;
+
         &__card {
+          position: relative;
           justify-content: center;
           width: 100%;
+          transition: all 250ms linear;
+          &__content {
+            position: absolute;
+            top: 100%;
+            margin: 2rem auto;
+            background: $card-bg;
+            padding: 1rem;
+            border-radius: 8px;
+          }
           &__sources {
             li,
             a {

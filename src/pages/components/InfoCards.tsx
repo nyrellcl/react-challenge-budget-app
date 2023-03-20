@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import data from "../../data.json";
-import {DM_Sans} from 'next/font/google'
+import intro from "../../../public/illustration-intro.svg"
+import Image from "next/image";
 
 
-const dmSans = DM_Sans({subsets: ['latin'],
-weight: ['400', '500', '700']})
 
 
 
@@ -19,11 +18,18 @@ function InfoCards() {
 
   return (
     <>
-    <style jsx global>{` html{
-            font-family: ${dmSans.style.fontFamily}
-        `}
-    </style>
+    
+    <section className="intro">
+      <div className="intro__img-container">
+    <Image className="intro__img-container__image" src={intro} alt="intro illustration"/>
 
+      </div>
+      <article className="intro__content">
+      <h1>Look at your money differently</h1>
+    <p>Learn more about how to take control of your money and increase your knowledge to make your money work for you.</p>
+      </article>
+      
+    </section>
     
 
     <section className="info">
