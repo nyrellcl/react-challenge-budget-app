@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-export function Nav(): JSX.Element {
+export default function Nav(): JSX.Element {
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
   return (
@@ -49,7 +49,7 @@ export function Nav(): JSX.Element {
   );
 }
 
-export function Footer(): JSX.Element {
+/*export function Footer(): JSX.Element {
   return (
     <footer className="footer-section">
       <svg
@@ -79,4 +79,4 @@ export function Footer(): JSX.Element {
       </nav>
     </footer>
   );
-}
+}*/
