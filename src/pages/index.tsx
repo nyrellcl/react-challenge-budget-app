@@ -1,6 +1,6 @@
 import Head from "next/head";
 import InfoCards from "./components/InfoCards";
-import Nav from "./components/layout";
+import Nav from "./components/Nav";
 import { useEffect } from "react";
 
 export default function Home() {
