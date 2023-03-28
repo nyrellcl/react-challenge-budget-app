@@ -1,16 +1,6 @@
 @use "sass:math";
-@import "./Global-sass/colors";
+@import "../Global-sass/colors", "../Global-sass/function";
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap");
-
-@function rem($number) {
-  @if unitless($number) {
-    $default-one-rem-in-pixel: 16;
-
-    @return math.div($number, $default-one-rem-in-pixel) * 1rem;
-  }
-
-  @error "This '#{number}' must not have a unit";
-}
 
 * {
   box-sizing: border-box;
@@ -29,6 +19,21 @@ body {
 
 ul {
   list-style: none;
+}
+
+h1 {
+  font-weight: 700;
+  color: $heading;
+  font-size: rem(40);
+  line-height: rem(50);
+  letter-spacing: rem(1);
+}
+
+p {
+  line-height: rem(28);
+  padding: 1rem;
+  letter-spacing: rem(1);
+  font-size: rem(22);
 }
 
 h2 {
@@ -94,17 +99,6 @@ h2 {
   width: 90%;
   margin: 0 auto;
   padding: 5rem 0;
-  h1 {
-    font-weight: 700;
-    color: $heading;
-    font-size: rem(40);
-    line-height: rem(50);
-    letter-spacing: rem(1);
-  }
-  p {
-    line-height: rem(28);
-    padding: 1rem;
-  }
   &__img-container {
     width: 100%;
     padding-bottom: 2.5rem;
@@ -181,23 +175,22 @@ h2 {
       }
     }
   }
-
 }
-.footer-section{
+.footer-section {
   background-color: $footer-bg;
   width: 100%;
   text-align: center;
   margin: 0 auto;
   padding: 1rem 0;
-  .footer-list{
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      gap: 1.5rem;
-      padding: 2rem 0;
-      a{
-          color:#ffff;
-      }
+  .footer-list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    a {
+      color: #ffff;
+    }
   }
 }
 
@@ -315,13 +308,19 @@ h2 {
         }
       }
     }
-}
-.footer-section{
+  }
+  .footer-section {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    .footer-list{
-        flex-direction: row;
+    .footer-list {
+      flex-direction: row;
+      a {
+        transition: all 250ms linear;
+        &:hover {
+          color: $red;
+        }
+      }
     }
-}
+  }
 }

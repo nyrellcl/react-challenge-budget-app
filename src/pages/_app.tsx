@@ -1,4 +1,5 @@
 import '@/styles/index-sass/index.css'
+import '@/styles/investing-sass/investing.css'
 import type { AppProps } from 'next/app'
 
 export default function App({ Component, pageProps }: AppProps) {
