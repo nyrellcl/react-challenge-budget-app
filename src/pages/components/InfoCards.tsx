@@ -4,9 +4,6 @@ import intro from "../../../public/illustration-intro.svg"
 import Image from "next/image";
 
 
-
-
-
 function InfoCards() {
   const [cardStates, setCardStates] = useState<boolean[]>(
     data.content.map(() => false)

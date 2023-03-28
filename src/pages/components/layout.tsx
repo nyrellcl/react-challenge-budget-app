@@ -1,11 +1,13 @@
 import React from 'react'
 import Nav from './Nav'
+import Footer from './Footer'
 
-function Layout({children}: any): JSX.Element {
+function Layout({children}: any) {
   return (
     <>
       <Nav/>
       {children}
+      <Footer/>
     </>
   )
 }
