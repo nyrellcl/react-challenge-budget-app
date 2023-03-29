@@ -24,11 +24,10 @@ function Investing() {
 
             <p>Losing is scary, there&apos;s no shame in wanting to keep your money safe.</p>
             <p>This is why this page exists! Being strategic with your investments will put you ahead of the curve no matter how early or late you start investing. </p>
-            <p>While there is risk, there is also reward. With the resources provided on this page, you&apos;ll have a more strategic and positive outlook towards investing!</p>
+            <p>When done right, investing allows you to be more hands off with your money and allows the money to grow in value. Thus, increasing your long term wealth.</p>
           </article>
         </section>
     </Layout>
-    
   )
 }
 
