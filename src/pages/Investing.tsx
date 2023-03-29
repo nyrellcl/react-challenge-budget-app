@@ -27,6 +27,13 @@ function Investing() {
             <p>When done right, investing allows you to be more hands off with your money and allows the money to grow in value. Thus, increasing your long term wealth.</p>
           </article>
         </section>
+
+        <section className='visualize-section'>
+          <article className='visualize-section__content'>
+            <h3>Let&apos;s visualize how one might start out, no matter what age they may be, or amount they start with.</h3>
+            <p>Below is a chart that shows potential and hypothetical figures that will help you visualize how your many can grow over the years.</p>
+          </article>
+        </section>
     </Layout>
   )
 }
