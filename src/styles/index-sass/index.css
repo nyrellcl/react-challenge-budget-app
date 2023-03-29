@@ -30,7 +30,6 @@ p {
   line-height: 1.75rem;
   padding: 1rem;
   letter-spacing: 0.0625rem;
-  font-size: 1.375rem;
 }
 
 h2 {
@@ -145,6 +144,7 @@ h2 {
   letter-spacing: 0.0625rem;
   text-align: center;
   line-height: 1.75rem;
+  font-size: 1rem;
 }
 .main-app .info__container__card__sources {
   display: flex;

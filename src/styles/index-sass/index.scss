@@ -33,7 +33,6 @@ p {
   line-height: rem(28);
   padding: 1rem;
   letter-spacing: rem(1);
-  font-size: rem(22);
 }
 
 h2 {
@@ -146,6 +145,7 @@ h2 {
           letter-spacing: rem(1);
           text-align: center;
           line-height: rem(28);
+          font-size: 1rem;
         }
         &__sources {
           display: flex;

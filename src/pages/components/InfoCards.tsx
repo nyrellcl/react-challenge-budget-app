@@ -23,7 +23,7 @@ function InfoCards() {
       </div>
       <article className="intro__content">
       <h1>Look at your money differently</h1>
-    <p>Learn more about how to take control of your money and increase your knowledge to make your money work for you.</p>
+    <p>Learn more about how to take control of your money and increase your knowledge towards managing your money.</p>
       </article>
       
     </section>

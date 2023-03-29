@@ -1,7 +1,37 @@
+@use "sass:math";
 @import "../Global-sass/colors", "../Global-sass/function";
 
 
 
 .investing-section{
     text-align: center;
+    width: 100%;
+    padding: 2rem;
+    background-color: $card-bg;
+}
+
+.investing-content{
+    width: 90%;
+    margin: 0 auto;
+    padding: 2rem;
+    &__card{
+        h2{
+            font-size: rem(28);
+            line-height: 2.25rem;
+            color: $heading;
+        }
+        p{
+            font-size: 1rem;
+            padding: 0;
+            margin-top: 1.5rem;
+            letter-spacing: rem(0.5);
+        }
+        &__image{
+            margin: 2rem auto;
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
 }

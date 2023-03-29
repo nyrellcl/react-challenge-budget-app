@@ -1,3 +1,30 @@
 .investing-section {
   text-align: center;
+  width: 100%;
+  padding: 2rem;
+  background-color: #FFFBF6;
+}
+
+.investing-content {
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.investing-content__card h2 {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  color: #242D52;
+}
+.investing-content__card p {
+  font-size: 1rem;
+  padding: 0;
+  margin-top: 1.5rem;
+  letter-spacing: 0.03125rem;
+}
+.investing-content__card__image {
+  margin: 2rem auto;
+}
+.investing-content__card__image img {
+  width: 100%;
+  height: auto;
 }/*# sourceMappingURL=investing.css.map */
