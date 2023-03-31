@@ -37,6 +37,7 @@
 }
 .visualize-section__content h3 {
   font-size: 1.5rem;
+  color: #242D52;
 }
 .visualize-section__content p {
   padding: 0 0 1rem 0;
@@ -80,7 +81,8 @@
   width: 40%;
   margin: 2rem auto;
   cursor: pointer;
-  padding: 0.5rem;
+  width: 8.5625rem;
+  height: 2.75rem;
   transition: all 250ms linear;
 }
 .data-chart__form .data-submit:hover {
@@ -90,6 +92,10 @@
 }
 
 @media only screen and (min-width: 968px) {
+  p {
+    font-size: 1.125rem;
+    width: 50%;
+  }
   .investing-section {
     height: 50vh;
   }
@@ -107,9 +113,7 @@
   }
   .investing-section__intro p {
     padding: 2rem 0 0 0;
-    width: 50%;
     text-align: left;
-    font-size: 1.25rem;
   }
   .investing-content {
     position: relative;
@@ -119,14 +123,33 @@
     font-size: 2.5rem;
     line-height: 3.5rem;
   }
-  .investing-content__card p {
-    width: 50%;
-    font-size: 1.125rem;
-  }
   .investing-content__card__image {
     position: absolute;
     width: 50%;
     top: 15%;
     right: -2.5%;
+  }
+  .visualize-section__content h3 {
+    font-size: 2.5rem;
+  }
+  .data-chart {
+    position: relative;
+  }
+  .data-chart canvas {
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .data-chart__form fieldset {
+    flex-direction: row;
+  }
+  .data-chart__form .data-submit {
+    margin: 2rem 0;
+  }
+  .data-chart__form .tax-rates {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }/*# sourceMappingURL=investing.css.map */
