@@ -35,7 +35,7 @@ function BarChart() {
       const futureValue =
         (newFormData.initial + (i - 1) * newFormData.contribution) *
         Math.pow(1 + newFormData.ROR / 100, i);
-      calculated.push(futureValue.toFixed(2));
+      calculated.push(parseInt(futureValue.toFixed(2)));
     }
     setCalculatedData(calculated);
     setFutureValue(calculated[calculated.length - 1]);
