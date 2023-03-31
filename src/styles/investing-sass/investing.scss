@@ -1,94 +1,146 @@
 @use "sass:math";
 @import "../Global-sass/colors", "../Global-sass/function";
 
-
-
-.investing-section{
-    text-align: center;
-    width: 100%;
-    padding: 2rem;
-    background-color: $card-bg;
+.investing-section {
+  text-align: center;
+  width: 100%;
+  padding: 2rem;
+  background-color: $card-bg;
 }
 
-.investing-content{
-    width: 90%;
-    margin: 0 auto;
-    padding: 2rem;
-    &__card{
-        h2{
-            font-size: rem(28);
-            line-height: 2.25rem;
-            color: $heading;
-        }
-        p{
-            font-size: 1rem;
-            padding: 0;
-            margin-top: 1.5rem;
-            letter-spacing: rem(0.5);
-        }
-        &__image{
-            margin: 2rem auto;
-            img{
-                width: 100%;
-                height: auto;
-            }
-        }
+.investing-content {
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem;
+  &__card {
+    h2 {
+      font-size: rem(28);
+      line-height: 2.25rem;
+      color: $heading;
     }
+    p {
+      font-size: 1rem;
+      padding: 0;
+      margin-top: 1.5rem;
+      letter-spacing: rem(0.5);
+    }
+    &__image {
+      margin: 2rem auto;
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: rem(8);
+      }
+    }
+  }
 }
 
-.visualize-section{
-    width: 90%;
-    margin: 0 auto;
-    padding: 2rem;
-    &__content{
-        h3{
-            font-size: rem(24);
-        }
-        p{
-            padding: 0 0 1rem 0;
-            margin-top: 1.5rem;
-
-        }
+.visualize-section {
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem;
+  &__content {
+    h3 {
+      font-size: rem(24);
     }
+    p {
+      padding: 0 0 1rem 0;
+      margin-top: 1.5rem;
+    }
+  }
 }
 
-.data-chart{
-    &__form{
-        fieldset{
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            gap: 1rem;
-            border: none;
-            padding-top: 1rem;
-        }
-        .tax-heading{
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        &__plan{
-            text-align: center;
-            padding: 1rem 0 0 0 ;
-        }
-        .data-submit{
-            background-color: $cyan;
-            color: #ffff;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: rem(0.5);
-            border: none;
-            border-radius: rem(8);
-            width: 40%;
-            margin: 0 auto;
-            cursor: pointer;
-            padding: 0.5rem;
-            transition: all 250ms linear;
-            &:hover{
-                background-color: transparent;
-                color: $cyan;
-                border: 1px solid $cyan;
-            }
-        }
+.data-chart {
+  &__form {
+    fieldset {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 1rem;
+      border: none;
+      padding-top: 1rem;
+      input {
+        border: none;
+        border-radius: rem(8);
+        padding: 0.5rem;
+        text-align: center;
+      }
     }
+    .tax-heading {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    &__plan {
+      text-align: center;
+      padding: 1rem 0 0 0;
+    }
+    .data-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $cyan;
+      color: #ffff;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: rem(0.5);
+      border: none;
+      border-radius: rem(8);
+      width: 40%;
+      margin: 2rem auto;
+      cursor: pointer;
+      padding: 0.5rem;
+      transition: all 250ms linear;
+      &:hover {
+        background-color: transparent;
+        color: $cyan;
+        border: 1px solid $cyan;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 968px) {
+  .investing-section {
+    height: 50vh;
+    &__intro {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      width: 90%;
+      margin: 0 auto;
+      h1 {
+        font-size: rem(72);
+      }
+      p {
+        padding: 2rem 0 0 0;
+        width: 50%;
+        text-align: left;
+        font-size: rem(20);
+      }
+    }
+  }
+
+  .investing-content {
+    position: relative;
+    &__card {
+      h2 {
+        width: 50%;
+        font-size: rem(40);
+        line-height: 3.5rem;
+      }
+      p {
+        width: 50%;
+        font-size: rem(18);
+      }
+      &__image {
+        position: absolute;
+        width: 50%;
+        top: 15%;
+        right: -2.5%;
+      }
+    }
+  }
 }

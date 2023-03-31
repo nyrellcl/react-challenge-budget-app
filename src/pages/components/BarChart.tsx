@@ -1,7 +1,7 @@
 import React from "react";
 import { Chart } from "chart.js/auto";
 import { useState, useRef, useEffect } from "react";
-import {FaCaretUp, FaCaretDown} from "react-icons/fa"
+import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 
 interface BarChartProps {
   years: number;
@@ -11,9 +11,9 @@ interface BarChartProps {
 }
 
 interface Taxes {
-  inflation: number,
-  federal_tax_rate: number,
-  state_tax_rate: number
+  inflation: number;
+  federal_tax_rate: number;
+  state_tax_rate: number;
 }
 
 function BarChart() {
@@ -27,11 +27,11 @@ function BarChart() {
   const [taxData, setTaxData] = useState<Taxes>({
     inflation: 3,
     federal_tax_rate: 25,
-    state_tax_rate: 6
-  })  
+    state_tax_rate: 6,
+  });
   const [calculatedData, setCalculatedData] = useState<number[]>([]);
   const [futureValue, setFutureValue] = useState<number | null>(null);
-  const [isTaxExpanded, setIsTaxExpanded] = useState<boolean>(false)
+  const [isTaxExpanded, setIsTaxExpanded] = useState<boolean>(false);
 
   const labels = Array.from({ length: data.years }, (_, i) => `${i + 1}`);
 
@@ -47,17 +47,17 @@ function BarChart() {
     const newTaxData = {
       inflation: parseInt(e.currentTarget.INFLATION.value),
       federal_tax_rate: parseInt(e.currentTarget.FEDERAL_TAX.value),
-      state_tax_rate: parseInt(e.currentTarget.STATE_TAX.value)
-    }
+      state_tax_rate: parseInt(e.currentTarget.STATE_TAX.value),
+    };
 
-    setTaxData(newTaxData)
+    setTaxData(newTaxData);
     setData(newFormData);
     const calculated: number[] = [];
     for (let i = 1; i <= newFormData.years; i++) {
       const futureValue =
         (newFormData.initial + (i - 1) * newFormData.contribution) *
         Math.pow(1 + newFormData.ROR / 100, i);
-        // tax calculation here const taxFutureValue = futureValue * 
+      // tax calculation here const taxFutureValue = futureValue *
       calculated.push(parseInt(futureValue.toFixed(2)));
     }
     setCalculatedData(calculated);
@@ -79,44 +79,42 @@ function BarChart() {
         labels: labels,
         datasets: [
           {
-            label: "Calculated Data",
+            label: "Investment Amount",
             data: calculatedData,
             borderRadius: 3,
             borderSkipped: false,
-            hoverBackgroundColor: "#76B5BC"
+            hoverBackgroundColor: "#76B5BC",
           },
         ],
       },
       options: {
-        layout:{
-          autoPadding: true
+        layout: {
+          autoPadding: true,
         },
-        plugins:{
-          title:{
+        plugins: {
+          title: {
             display: true,
             text: "Investment Calculation Chart",
-            
           },
         },
         responsive: true,
         scales: {
           y: {
             beginAtZero: true,
-            ticks:{
+            ticks: {
               callback(tickValue) {
-                return `$${tickValue}`
+                return `$${tickValue}`;
               },
-            }
+            },
           },
-          x:{
+          x: {
             grid: {
-              display: false
-            }
-          }
+              display: false,
+            },
+          },
         },
-        backgroundColor: "#EC755D"
+        backgroundColor: "#EC755D",
       },
-
     });
     return () => {
       chart.destroy();
@@ -128,49 +126,82 @@ function BarChart() {
     //user input data section
     <section className="data-chart">
       <form className="data-chart__form" onSubmit={handleDataSubmit}>
-        {futureValue && <p className="data-chart__form__plan">Your plan produces <strong>${futureValue}</strong> in <strong>{data.years} years</strong></p>}
+        {futureValue && (
+          <p className="data-chart__form__plan">
+            Your plan produces <strong>${futureValue}</strong> in{" "}
+            <strong>{data.years} years</strong>
+          </p>
+        )}
         <fieldset>
           <label htmlFor="YEARS">Years to accumulate:</label>
-          <input name="YEARS" id="YEARS" type="number" defaultValue={data.years} />
+          <input
+            name="YEARS"
+            id="YEARS"
+            type="number"
+            defaultValue={data.years}
+          />
         </fieldset>
 
         <fieldset>
           <label htmlFor="INITIAL">Amount of initial investment:</label>
-          <input type="number" name="INITIAL" id="INITIAL" defaultValue={data.initial} />
+          <input
+            type="number"
+            name="INITIAL"
+            id="INITIAL"
+            defaultValue={data.initial}
+          />
         </fieldset>
 
         <fieldset>
           <label htmlFor="ROR_INVEST">Rate of return:</label>
-          <input type="number" name="ROR_INVEST" id="ROR_INVEST" defaultValue={data.ROR} />
+          <input
+            type="number"
+            name="ROR_INVEST"
+            id="ROR_INVEST"
+            defaultValue={data.ROR}
+          />
         </fieldset>
 
         <fieldset>
           <label htmlFor="CONTRIBUTION">Periodic contribution:</label>
-          <input name="CONTRIBUTION" id="CONTRIBUTION" defaultValue={data.contribution}/>
+          <input
+            name="CONTRIBUTION"
+            id="CONTRIBUTION"
+            defaultValue={data.contribution}
+          />
         </fieldset>
         <fieldset className="tax-heading">
-        <h4>Investment Taxes and Inflation</h4>
-          {isTaxExpanded ? <FaCaretDown onClick={() => setIsTaxExpanded(!isTaxExpanded)}/> : <FaCaretUp onClick={() => setIsTaxExpanded(!isTaxExpanded)}/>}
+          <h4>Investment Taxes and Inflation</h4>
         </fieldset>
-        {isTaxExpanded ? <fieldset className="tax-rates-expanded">
-
+        <fieldset className="tax-rates">
           <label htmlFor="INFLATION">Expected inflation rate %:</label>
-          <input name="INFLATION" id="INFLATION" type="number" defaultValue={taxData.inflation}/>
+          <input
+            name="INFLATION"
+            id="INFLATION"
+            type="number"
+            defaultValue={taxData.inflation}
+          />
 
           <label htmlFor="FEDERAL_TAX">Federal marginal tax rate %:</label>
-          <input name="FEDERAL_TAX" id="FEDERAL_TAX" type="number" defaultValue={taxData.federal_tax_rate}/>
+          <input
+            name="FEDERAL_TAX"
+            id="FEDERAL_TAX"
+            type="number"
+            defaultValue={taxData.federal_tax_rate}
+          />
 
           <label htmlFor="STATE_TAX">State marginal tax rate %:</label>
-          <input name="STATE_TAX" id="STATE_TAX" type="number" defaultValue={taxData.state_tax_rate}/>
-        </fieldset> : 
-        <fieldset className="tax-rates">
-          <label htmlFor="INFLATION">{taxData.inflation}% Inflation</label>
-          <label htmlFor="FEDERAL_TAX">{taxData.federal_tax_rate}% Federal Tax Rate</label>
-          <label htmlFor="STATE_TAX">{taxData.state_tax_rate}% State Tax Rate</label>
+          <input
+            name="STATE_TAX"
+            id="STATE_TAX"
+            type="number"
+            defaultValue={taxData.state_tax_rate}
+          />
         </fieldset>
-         }
-        
-        <button type="submit" className="data-submit">Submit</button>
+
+        <button type="submit" className="data-submit">
+          Submit
+        </button>
       </form>
       <canvas ref={chartRef} width={400} height={400} />
     </section>

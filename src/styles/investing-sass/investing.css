@@ -27,6 +27,7 @@
 .investing-content__card__image img {
   width: 100%;
   height: auto;
+  border-radius: 0.5rem;
 }
 
 .visualize-section {
@@ -50,6 +51,12 @@
   border: none;
   padding-top: 1rem;
 }
+.data-chart__form fieldset input {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  text-align: center;
+}
 .data-chart__form .tax-heading {
   display: flex;
   align-items: center;
@@ -60,6 +67,9 @@
   padding: 1rem 0 0 0;
 }
 .data-chart__form .data-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #76B5BC;
   color: white;
   font-weight: 700;
@@ -68,7 +78,7 @@
   border: none;
   border-radius: 0.5rem;
   width: 40%;
-  margin: 0 auto;
+  margin: 2rem auto;
   cursor: pointer;
   padding: 0.5rem;
   transition: all 250ms linear;
@@ -77,4 +87,46 @@
   background-color: transparent;
   color: #76B5BC;
   border: 1px solid #76B5BC;
+}
+
+@media only screen and (min-width: 968px) {
+  .investing-section {
+    height: 50vh;
+  }
+  .investing-section__intro {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .investing-section__intro h1 {
+    font-size: 4.5rem;
+  }
+  .investing-section__intro p {
+    padding: 2rem 0 0 0;
+    width: 50%;
+    text-align: left;
+    font-size: 1.25rem;
+  }
+  .investing-content {
+    position: relative;
+  }
+  .investing-content__card h2 {
+    width: 50%;
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+  }
+  .investing-content__card p {
+    width: 50%;
+    font-size: 1.125rem;
+  }
+  .investing-content__card__image {
+    position: absolute;
+    width: 50%;
+    top: 15%;
+    right: -2.5%;
+  }
 }/*# sourceMappingURL=investing.css.map */
