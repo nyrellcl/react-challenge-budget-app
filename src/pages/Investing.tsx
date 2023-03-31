@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from './components/layout'
 import Image from 'next/image'
 import heroImg from "../../public/pexels-cottonbro-studio-3943716.jpg"
+import BarChart from './components/BarChart'
 
 function Investing() {
   return (
@@ -33,6 +34,7 @@ function Investing() {
             <h3>Let&apos;s visualize how one might start out, no matter what age they may be, or amount they start with.</h3>
             <p>Below is a chart you can use to visualize how your money can grow over the years.</p>
           </article>
+          <BarChart/>
         </section>
     </Layout>
   )

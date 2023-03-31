@@ -27,4 +27,17 @@
 .investing-content__card__image img {
   width: 100%;
   height: auto;
+}
+
+.visualize-section {
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.visualize-section__content h3 {
+  font-size: 1.5rem;
+}
+.visualize-section__content p {
+  padding: 0;
+  margin-top: 1.5rem;
 }/*# sourceMappingURL=investing.css.map */
