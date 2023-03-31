@@ -32,7 +32,7 @@ function Investing() {
         <section className='visualize-section'>
           <article className='visualize-section__content'>
             <h3>Let&apos;s visualize how one might start out, no matter what age they may be, or amount they start with.</h3>
-            <p>Below is a chart you can use to visualize how your money can grow over the years.</p>
+            <p>Below is a chart you can use to visualize how much your money can grow over the years.</p>
           </article>
           <BarChart/>
         </section>

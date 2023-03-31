@@ -45,9 +45,50 @@
             font-size: rem(24);
         }
         p{
-            padding: 0;
+            padding: 0 0 1rem 0;
             margin-top: 1.5rem;
 
+        }
+    }
+}
+
+.data-chart{
+    &__form{
+        fieldset{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 1rem;
+            border: none;
+            padding-top: 1rem;
+        }
+        .tax-heading{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        &__plan{
+            text-align: center;
+            padding: 1rem 0 0 0 ;
+        }
+        .data-submit{
+            background-color: $cyan;
+            color: #ffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: rem(0.5);
+            border: none;
+            border-radius: rem(8);
+            width: 40%;
+            margin: 0 auto;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: all 250ms linear;
+            &:hover{
+                background-color: transparent;
+                color: $cyan;
+                border: 1px solid $cyan;
+            }
         }
     }
 }

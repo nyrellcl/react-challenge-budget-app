@@ -38,6 +38,43 @@
   font-size: 1.5rem;
 }
 .visualize-section__content p {
-  padding: 0;
+  padding: 0 0 1rem 0;
   margin-top: 1.5rem;
+}
+
+.data-chart__form fieldset {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  border: none;
+  padding-top: 1rem;
+}
+.data-chart__form .tax-heading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.data-chart__form__plan {
+  text-align: center;
+  padding: 1rem 0 0 0;
+}
+.data-chart__form .data-submit {
+  background-color: #76B5BC;
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03125rem;
+  border: none;
+  border-radius: 0.5rem;
+  width: 40%;
+  margin: 0 auto;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 250ms linear;
+}
+.data-chart__form .data-submit:hover {
+  background-color: transparent;
+  color: #76B5BC;
+  border: 1px solid #76B5BC;
 }/*# sourceMappingURL=investing.css.map */
