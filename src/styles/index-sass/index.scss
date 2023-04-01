@@ -55,7 +55,7 @@ h2 {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1.5rem;
+  padding: 0.5rem 1.5rem;
   background-color: $red;
   &__icon {
     z-index: 10;
@@ -216,6 +216,7 @@ h2 {
 
 @media only screen and (min-width: 968px) {
   .nav-bar {
+    padding: 1rem;
     &__list {
       li {
         a {
