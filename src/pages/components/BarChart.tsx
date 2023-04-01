@@ -1,7 +1,6 @@
 import React from "react";
 import { Chart } from "chart.js/auto";
 import { useState, useRef, useEffect } from "react";
-import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 
 interface BarChartProps {
   years: number;
@@ -31,7 +30,6 @@ function BarChart() {
   });
   const [calculatedData, setCalculatedData] = useState<number[]>([]);
   const [futureValue, setFutureValue] = useState<number | null>(null);
-  const [isTaxExpanded, setIsTaxExpanded] = useState<boolean>(false);
 
   const labels = Array.from({ length: data.years }, (_, i) => `${i + 1}`);
 
@@ -50,10 +48,30 @@ function BarChart() {
       state_tax_rate: parseInt(e.currentTarget.STATE_TAX.value),
     };
 
+    const intervals = ["twoWeeks", "monthly", "yearly"];
+
     setTaxData(newTaxData);
     setData(newFormData);
     const calculated: number[] = [];
     for (let i = 1; i <= newFormData.years; i++) {
+      intervals.forEach((interval) => {
+        let contribution = 0;
+
+        switch (interval) {
+          case "twoWeeks":
+            contribution = (newFormData.contribution * 26) / 12;
+            break;
+
+          case "monthly":
+            contribution = newFormData.contribution;
+            break;
+          case "yearly":
+            contribution = newFormData.contribution / 12;
+            break;
+          default:
+            break;
+        }
+      });
       const futureValue =
         (newFormData.initial + (i - 1) * newFormData.contribution) *
         Math.pow(1 + newFormData.ROR / 100, i);

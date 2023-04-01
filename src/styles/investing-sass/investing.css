@@ -2,7 +2,8 @@
   text-align: center;
   width: 100%;
   padding: 2rem;
-  background-color: #FFFBF6;
+  background-color: #EC755D;
+  color: #FFFBF6;
 }
 
 .investing-content {
@@ -92,10 +93,6 @@
 }
 
 @media only screen and (min-width: 968px) {
-  p {
-    font-size: 1.125rem;
-    width: 50%;
-  }
   .investing-section {
     height: 50vh;
   }
@@ -114,6 +111,7 @@
   .investing-section__intro p {
     padding: 2rem 0 0 0;
     text-align: left;
+    width: 50%;
   }
   .investing-content {
     position: relative;
@@ -123,6 +121,10 @@
     font-size: 2.5rem;
     line-height: 3.5rem;
   }
+  .investing-content__card p {
+    font-size: 1.125rem;
+    width: 50%;
+  }
   .investing-content__card__image {
     position: absolute;
     width: 50%;
@@ -131,6 +133,10 @@
   }
   .visualize-section__content h3 {
     font-size: 2.5rem;
+  }
+  .visualize-section__content p {
+    font-size: 1.125rem;
+    width: 50%;
   }
   .data-chart {
     position: relative;
@@ -144,6 +150,10 @@
   }
   .data-chart__form fieldset {
     flex-direction: row;
+  }
+  .data-chart__form__plan {
+    text-align: left;
+    padding-bottom: 2rem;
   }
   .data-chart__form .data-submit {
     margin: 2rem 0;

@@ -5,7 +5,8 @@
   text-align: center;
   width: 100%;
   padding: 2rem;
-  background-color: $card-bg;
+  background-color: $red;
+  color: $card-bg;
 }
 
 .investing-content {
@@ -103,11 +104,8 @@
 }
 
 @media only screen and (min-width: 968px) {
-  p {
-    font-size: rem(18);
-    width: 50%;
-  }
-  .investing-section {
+    .investing-section {
+
     height: 50vh;
     &__intro {
       display: flex;
@@ -123,6 +121,7 @@
       p {
         padding: 2rem 0 0 0;
         text-align: left;
+        width: 50%;
       }
     }
   }
@@ -134,6 +133,10 @@
         width: 50%;
         font-size: rem(40);
         line-height: 3.5rem;
+      }
+      p {
+        font-size: rem(18);
+        width: 50%;
       }
       &__image {
         position: absolute;
@@ -148,6 +151,10 @@
     &__content {
       h3 {
         font-size: rem(40);
+      }
+      p {
+        font-size: rem(18);
+        width: 50%;
       }
     }
   }
@@ -164,6 +171,10 @@
     &__form {
       fieldset {
         flex-direction: row;
+      }
+      &__plan{
+        text-align: left;
+        padding-bottom: 2rem;
       }
       .data-submit {
         margin: 2rem 0;

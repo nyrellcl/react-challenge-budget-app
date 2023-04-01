@@ -46,6 +46,8 @@ h2 {
 .header-bar {
   width: 100%;
   z-index: 10;
+  position: sticky;
+  top: 0;
 }
 
 .nav-bar {
@@ -55,7 +57,6 @@ h2 {
   width: 100%;
   padding: 1.5rem;
   background-color: $red;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.22);
   &__icon {
     z-index: 10;
     display: flex;
