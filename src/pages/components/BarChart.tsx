@@ -1,18 +1,26 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { Chart } from "chart.js/auto";
 //redux
 import { useSelector, useDispatch, Provider } from "react-redux";
-import { setData, setTaxData } from "../../redux/action";
+import {
+  setData,
+  setTaxData,
+  setCalculatedData,
+  setFutureValueData,
+} from "../../redux/action";
 import store from "../../redux/store";
 
 function BarChart() {
   //redux
   const data = useSelector((state: any) => state.data);
   const taxData = useSelector((state: any) => state.taxData);
+  const calculatedData: number[] = useSelector(
+    (state: any) => state.calculatedData.calculatedData
+  );
+  const futureValue: number | null = useSelector(
+    (state: any) => state.futureValue
+  );
   const dispatch = useDispatch();
-
-  const [calculatedData, setCalculatedData] = useState<number[]>([]);
-  const [futureValue, setFutureValue] = useState<number | null>(null);
 
   const labels = Array.from({ length: data.years }, (_, i) => `${i + 1}`);
 
@@ -23,6 +31,7 @@ function BarChart() {
       initial: parseInt(e.currentTarget.INITIAL.value),
       ROR: parseInt(e.currentTarget.ROR_INVEST.value),
       contribution: parseInt(e.currentTarget.CONTRIBUTION.value),
+      contributionInterval: e.currentTarget.CONTRIBUTION_INTERVAL.value,
     };
 
     const newTaxData = {
@@ -31,39 +40,42 @@ function BarChart() {
       state_tax_rate: parseInt(e.currentTarget.STATE_TAX.value),
     };
 
-    const intervals = ["twoWeeks", "monthly", "yearly"];
-
     dispatch(setData(newFormData));
     dispatch(setTaxData(newTaxData));
 
     const calculated: number[] = [];
+    let accumulatedContribution = 0;
     for (let i = 1; i <= newFormData.years; i++) {
-      intervals.forEach((interval) => {
-        let contribution = 0;
+      let contributionInterval = e.currentTarget.CONTRIBUTION_INTERVAL.value;
 
-        switch (interval) {
-          case "twoWeeks":
-            contribution = (newFormData.contribution * 26) / 12;
-            break;
+      switch (newFormData.contributionInterval) {
+        case "twoWeeks":
+          contributionInterval = (newFormData.contribution * 26) / 12;
+          break;
 
-          case "monthly":
-            contribution = newFormData.contribution;
-            break;
-          case "yearly":
-            contribution = newFormData.contribution / 12;
-            break;
-          default:
-            break;
-        }
-      });
-      const futureValue =
-        (newFormData.initial + (i - 1) * newFormData.contribution) *
-        Math.pow(1 + newFormData.ROR / 100, i);
-      // tax calculation here const taxFutureValue = futureValue *
-      calculated.push(parseInt(futureValue.toFixed(2)));
+        case "month":
+          contributionInterval = newFormData.contribution;
+          break;
+        case "year":
+          contributionInterval = newFormData.contribution / 12;
+          break;
+        default:
+          break;
+      }
+      accumulatedContribution += contributionInterval;
+
+      const futureValueCalculation =
+        i === 1
+          ? (newFormData.initial + accumulatedContribution) *
+            Math.pow(1 + newFormData.ROR / 100, i)
+          : (calculated[i - 2] + accumulatedContribution) *
+            Math.pow(1 + newFormData.ROR / 100, 1);
+
+      calculated.push(parseInt(futureValueCalculation.toFixed(2)));
     }
-    setCalculatedData(calculated);
-    setFutureValue(calculated[calculated.length - 1]);
+
+    dispatch(setCalculatedData(calculated));
+    dispatch(setFutureValueData(calculated[calculated.length - 1]));
     e.currentTarget.reset();
   };
 
@@ -128,12 +140,15 @@ function BarChart() {
     //user input data section
     <section className="data-chart">
       <form className="data-chart__form" onSubmit={handleDataSubmit}>
-        {futureValue && (
+        {futureValue ? (
           <p className="data-chart__form__plan">
             Your plan produces <strong>${futureValue}</strong> in{" "}
-            <strong>{data.years} years</strong>
+            <strong>{data.years} years</strong> if you contributed{" "}
+            <strong>
+              ${data.contribution} every {data.contributionInterval}
+            </strong>
           </p>
-        )}
+        ) : null}
         <fieldset>
           <label htmlFor="YEARS">Years to accumulate:</label>
           <input
@@ -165,12 +180,21 @@ function BarChart() {
         </fieldset>
 
         <fieldset>
-          <label htmlFor="CONTRIBUTION">Periodic contribution:</label>
+          <label htmlFor="CONTRIBUTION">Contribution:</label>
           <input
             name="CONTRIBUTION"
             id="CONTRIBUTION"
             defaultValue={data.contribution}
           />
+        </fieldset>
+
+        <fieldset>
+          <label htmlFor="CONTRIBUTION_INTERVAL">Contribution Interval:</label>
+          <select name="CONTRIBUTION_INTERVAL" id="CONTRIBUTION_INTERVAL">
+            <option value="twoWeeks">Every two weeks</option>
+            <option value="month">Monthly</option>
+            <option value="year">Yearly</option>
+          </select>
         </fieldset>
         <fieldset className="tax-heading">
           <h4>Investment Taxes and Inflation</h4>
