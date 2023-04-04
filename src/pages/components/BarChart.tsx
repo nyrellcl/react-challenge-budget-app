@@ -99,6 +99,7 @@ function BarChart() {
             borderSkipped: false,
             hoverBackgroundColor: "#76B5BC",
           },
+          //add tax data here
         ],
       },
       options: {

@@ -18,7 +18,7 @@ function InfoCards() {
     
     <section className="intro">
       <div className="intro__img-container">
-    <Image className="intro__img-container__image" src={intro} alt="intro illustration"/>
+    <Image priority={true} className="intro__img-container__image" src={intro} alt="intro illustration"/>
 
       </div>
       <article className="intro__content">

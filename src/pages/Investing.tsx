@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import Layout from './components/layout'
 import Image from 'next/image'
 import heroImg from "../../public/pexels-cottonbro-studio-3943716.jpg"
@@ -6,6 +7,13 @@ import BarChart from './components/BarChart'
 
 function Investing() {
   return (
+    <>
+    <Head>
+        <title>Investing Basics</title>
+        <meta name="description" content="React challenges by ChatGPT" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
     <Layout>
         <section className="investing-section">
           <article className="investing-section__intro">
@@ -20,7 +28,7 @@ function Investing() {
             <p>Investing doesn&apos;t have to be scary. In fact, what <strong>is</strong> scary is losing out on money that you could be gaining simply by not taking that step towards diversifying where your money is stored.</p>
 
             <div className='investing-content__card__image'>
-              <Image src={heroImg} alt="Person Putting Coin in a Piggy Bank"/>
+              <Image priority={true} src={heroImg} alt="Person Putting Coin in a Piggy Bank"/>
             </div>
 
             <p>Losing is scary, there&apos;s no shame in wanting to keep your money safe.</p>
@@ -37,6 +45,7 @@ function Investing() {
           <BarChart/>
         </section>
     </Layout>
+    </>
   )
 }
 
