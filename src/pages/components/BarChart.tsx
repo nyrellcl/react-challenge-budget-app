@@ -1,33 +1,16 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Chart } from "chart.js/auto";
-import { useState, useRef, useEffect } from "react";
-
-interface BarChartProps {
-  years: number;
-  initial: number;
-  ROR: number;
-  contribution: number;
-}
-
-interface Taxes {
-  inflation: number;
-  federal_tax_rate: number;
-  state_tax_rate: number;
-}
+//redux
+import { useSelector, useDispatch, Provider } from "react-redux";
+import { setData, setTaxData } from "../../redux/action";
+import store from "../../redux/store";
 
 function BarChart() {
-  const [data, setData] = useState<BarChartProps>({
-    years: 18,
-    initial: 200,
-    ROR: 7,
-    contribution: 200,
-  });
+  //redux
+  const data = useSelector((state: any) => state.data);
+  const taxData = useSelector((state: any) => state.taxData);
+  const dispatch = useDispatch();
 
-  const [taxData, setTaxData] = useState<Taxes>({
-    inflation: 3,
-    federal_tax_rate: 25,
-    state_tax_rate: 6,
-  });
   const [calculatedData, setCalculatedData] = useState<number[]>([]);
   const [futureValue, setFutureValue] = useState<number | null>(null);
 
@@ -50,8 +33,9 @@ function BarChart() {
 
     const intervals = ["twoWeeks", "monthly", "yearly"];
 
-    setTaxData(newTaxData);
-    setData(newFormData);
+    dispatch(setData(newFormData));
+    dispatch(setTaxData(newTaxData));
+
     const calculated: number[] = [];
     for (let i = 1; i <= newFormData.years; i++) {
       intervals.forEach((interval) => {
@@ -226,4 +210,10 @@ function BarChart() {
   );
 }
 
-export default BarChart;
+// eslint-disable-next-line import/no-anonymous-default-export, react/display-name
+export default () => (
+  <Provider store={store}>
+    {" "}
+    <BarChart />{" "}
+  </Provider>
+);
