@@ -46,6 +46,7 @@ function BarChart() {
     const calculated: number[] = [];
     let accumulatedContribution = 0;
     for (let i = 1; i <= newFormData.years; i++) {
+      
       let contributionInterval = e.currentTarget.CONTRIBUTION_INTERVAL.value;
 
       switch (newFormData.contributionInterval) {
@@ -62,12 +63,14 @@ function BarChart() {
         default:
           break;
       }
+
       accumulatedContribution += contributionInterval;
 
       const futureValueCalculation =
         i === 1
           ? (newFormData.initial + accumulatedContribution) *
-            Math.pow(1 + newFormData.ROR / 100, i)
+            Math.pow(1 + newFormData.ROR / 100, (i - 1))
+            //calculates amount for subsequent years
           : (calculated[i - 2] + accumulatedContribution) *
             Math.pow(1 + newFormData.ROR / 100, 1);
 
@@ -75,7 +78,7 @@ function BarChart() {
     }
 
     dispatch(setCalculatedData(calculated));
-    dispatch(setFutureValueData(calculated[calculated.length - 1]));
+    dispatch(setFutureValueData(calculated[calculated.length - 1] ));
     e.currentTarget.reset();
   };
 
