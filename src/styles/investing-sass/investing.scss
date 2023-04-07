@@ -9,6 +9,46 @@
   color: $card-bg;
 }
 
+.investing-content, .resources-section, .visualize-section{
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.resources-section{
+  width: 90%;
+ 
+  &__content{
+    h3 {
+      font-size: rem(24);
+      color: $heading;
+      margin-bottom: 1.5rem;
+    }
+    img{
+      width: 100%;
+      height: 100%;
+      border-radius: rem(8);
+    }
+    &__card{
+      .btn-resources{
+        display: flex;
+        place-content: center;
+        button{
+          width: rem(125);
+          height: rem(50);
+          background-color: $cyan;
+          border: none;
+          border-radius: rem(8);
+          text-transform: uppercase;
+          letter-spacing: rem(0.5);
+          color: #ffff;
+          font-weight: 700;
+
+        }
+      }
+    }
+  }
+}
+
 .investing-content {
   width: 90%;
   margin: 0 auto;
@@ -38,8 +78,6 @@
 
 .visualize-section {
   width: 90%;
-  margin: 0 auto;
-  padding: 2rem;
   &__content {
     h3 {
       font-size: rem(24);

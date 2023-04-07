@@ -2,8 +2,9 @@ import React from 'react'
 import Head from 'next/head'
 import Layout from './components/layout'
 import Image from 'next/image'
-import heroImg from "../../public/pexels-cottonbro-studio-3943716.jpg"
+import heroImg from "../../public/assets/pexels-cottonbro-studio-3943716.jpg"
 import BarChart from './components/BarChart'
+import ResourceInvest from './components/ResourceInvest'
 
 function Investing() {
   return (
@@ -12,7 +13,7 @@ function Investing() {
         <title>Investing Basics</title>
         <meta name="description" content="React challenges by ChatGPT" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/assets/favicon.ico" />
       </Head>
     <Layout>
         <section className="investing-section">
@@ -24,7 +25,7 @@ function Investing() {
 
         <section className='investing-content'>
           <article className='investing-content__card'>
-            <h2>Much like you, your money can age like fine wine too! But, first why invest?</h2>
+            <h2>Much like you, your money can age like fine wine too! But first, why invest?</h2>
             <p>Investing doesn&apos;t have to be scary. In fact, what <strong>is</strong> scary is losing out on money that you could be gaining simply by not taking that step towards diversifying where your money is stored.</p>
 
             <div className='investing-content__card__image'>
@@ -36,6 +37,8 @@ function Investing() {
             <p>When done right, investing allows you to be more hands off with your money and allows the money to grow in value. Thus, increasing your long term wealth.</p>
           </article>
         </section>
+
+        <ResourceInvest/>
 
         <section className='visualize-section'>
           <article className='visualize-section__content'>

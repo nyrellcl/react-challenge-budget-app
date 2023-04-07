@@ -6,6 +6,40 @@
   color: #FFFBF6;
 }
 
+.investing-content, .resources-section, .visualize-section {
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.resources-section {
+  width: 90%;
+}
+.resources-section__content h3 {
+  font-size: 1.5rem;
+  color: #242D52;
+  margin-bottom: 1.5rem;
+}
+.resources-section__content img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+.resources-section__content__card .btn-resources {
+  display: flex;
+  place-content: center;
+}
+.resources-section__content__card .btn-resources button {
+  width: 7.8125rem;
+  height: 3.125rem;
+  background-color: #76B5BC;
+  border: none;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03125rem;
+  color: white;
+  font-weight: 700;
+}
+
 .investing-content {
   width: 90%;
   margin: 0 auto;
@@ -33,8 +67,6 @@
 
 .visualize-section {
   width: 90%;
-  margin: 0 auto;
-  padding: 2rem;
 }
 .visualize-section__content h3 {
   font-size: 1.5rem;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import data from "../../data.json";
-import intro from "../../../public/illustration-intro.svg"
+import intro from "../../../public/assets/illustration-intro.svg"
 import Image from "next/image";
 
 
@@ -23,7 +23,7 @@ function InfoCards() {
       </div>
       <article className="intro__content">
       <h1>Look at your money differently</h1>
-    <p>Learn more about how to take control of your money and increase your knowledge towards managing your money.</p>
+    <p>Change your perspective on money and generate confidence on how to take control of your finances.</p>
       </article>
       
     </section>
