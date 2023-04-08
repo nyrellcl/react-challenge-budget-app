@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import data from "../data.json";
-import intro from "../../../public/assets/illustration-intro.svg"
+import intro from "../../public/assets/illustration-intro.svg"
 import Image from "next/image";
 
 
