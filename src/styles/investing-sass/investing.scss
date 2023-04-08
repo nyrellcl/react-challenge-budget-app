@@ -9,30 +9,32 @@
   color: $card-bg;
 }
 
-.investing-content, .resources-section, .visualize-section{
+.investing-content,
+.resources-section,
+.visualize-section {
   margin: 0 auto;
   padding: 2rem;
 }
 
-.resources-section{
+.resources-section {
   width: 90%;
- 
-  &__content{
+
+  &__content {
     h3 {
       font-size: rem(24);
       color: $heading;
       margin-bottom: 1.5rem;
     }
-    img{
+    img {
       width: 100%;
       height: 100%;
       border-radius: rem(8);
     }
-    &__card{
-      .btn-resources{
+    &__card {
+      .btn-resources {
         display: flex;
         place-content: center;
-        button{
+        button {
           width: rem(125);
           height: rem(50);
           background-color: $cyan;
@@ -42,7 +44,6 @@
           letter-spacing: rem(0.5);
           color: #ffff;
           font-weight: 700;
-
         }
       }
     }
@@ -142,7 +143,7 @@
 }
 
 @media only screen and (min-width: 968px) {
-    .investing-section {
+  .investing-section {
     height: 50vh;
     &__intro {
       display: flex;
@@ -184,6 +185,33 @@
     }
   }
 
+  .resources-section {
+    width: 50%;
+    &__content {
+      h3 {
+        font-size: rem(40);
+        text-align: center;
+      }
+      &__card {
+        .btn-resources {
+          button {
+            transition: all 250ms linear;
+            &:hover,
+            &:focus {
+              cursor: pointer;
+              border: 2px solid $cyan;
+              background-color: transparent;
+              color: $cyan;
+            }
+            &:active{
+              transform: translateY(5px);
+            }
+          }
+        }
+      }
+    }
+  }
+
   .visualize-section {
     &__content {
       h3 {
@@ -209,7 +237,7 @@
       fieldset {
         flex-direction: row;
       }
-      &__plan{
+      &__plan {
         text-align: left;
         padding-bottom: 2rem;
       }

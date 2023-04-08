@@ -6,7 +6,9 @@
   color: #FFFBF6;
 }
 
-.investing-content, .resources-section, .visualize-section {
+.investing-content,
+.resources-section,
+.visualize-section {
   margin: 0 auto;
   padding: 2rem;
 }
@@ -162,6 +164,25 @@
     width: 50%;
     top: 15%;
     right: -2.5%;
+  }
+  .resources-section {
+    width: 50%;
+  }
+  .resources-section__content h3 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  .resources-section__content__card .btn-resources button {
+    transition: all 250ms linear;
+  }
+  .resources-section__content__card .btn-resources button:hover, .resources-section__content__card .btn-resources button:focus {
+    cursor: pointer;
+    border: 2px solid #76B5BC;
+    background-color: transparent;
+    color: #76B5BC;
+  }
+  .resources-section__content__card .btn-resources button:active {
+    transform: translateY(5px);
   }
   .visualize-section__content h3 {
     font-size: 2.5rem;

@@ -3,7 +3,7 @@ import Image from "next/image";
 import source1 from "../../../public/assets/woman-invest.jpg";
 import source2 from "../../../public/assets/stock-chart.jpg";
 import source3 from "../../../public/assets/growth-chart.jpg";
-import { Pagination, EffectCoverflow } from "swiper";
+import { Navigation, Pagination, EffectCoverflow } from "swiper";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -19,7 +19,6 @@ function ResourceInvest() {
         <Swiper
           effect={"coverflow"}
           centeredSlides={true}
-          grabCursor={true}
           slidesPerView={"auto"}
           coverflowEffect={{
             rotate: 50,
@@ -32,7 +31,8 @@ function ResourceInvest() {
           pagination={{
             clickable: true,
           }}
-          modules={[EffectCoverflow, Pagination]}
+          navigation={true}
+          modules={[Navigation, EffectCoverflow, Pagination]}
           className="mySwiper"
         >
           <SwiperSlide>
@@ -43,7 +43,7 @@ function ResourceInvest() {
               />
               <p>
                 Financial companies, banks, and investment companies are
-                institutions dedicated for providing you these informations!
+                institutions dedicated to providing you these informations!
               </p>
               <p>
                 To name a few there are: Vanguard, Fidelity, Charles Schwab,
@@ -53,7 +53,7 @@ function ResourceInvest() {
               </p>
             </article>
           </SwiperSlide>
-          
+
           <SwiperSlide>
             <article className="resources-section__content__card">
               <Image
