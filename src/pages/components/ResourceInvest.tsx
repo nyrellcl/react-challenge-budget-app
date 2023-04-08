@@ -17,22 +17,14 @@ function ResourceInvest() {
       <article className="resources-section__content">
         <h3>Expand Your Knowledge on Investing</h3>
         <Swiper
-          effect={"coverflow"}
-          centeredSlides={true}
-          slidesPerView={"auto"}
-          coverflowEffect={{
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: false,
-          }}
+          slidesPerView={1}
+          spaceBetween={50}
           loop={true}
           pagination={{
             clickable: true,
           }}
           navigation={true}
-          modules={[Navigation, EffectCoverflow, Pagination]}
+          modules={[Pagination, Navigation]}
           className="mySwiper"
         >
           <SwiperSlide>
@@ -42,8 +34,8 @@ function ResourceInvest() {
                 alt="https://www.freepik.com/free-vector/startup-managers-presenting-analyzing-sales-growth-chart-group-workers-with-heap-cash-rocket-bar-diagrams-with-arrow-heap-money_12291285.htm#query=illustrations%20invest&position=7&from_view=search&track=ais Image by pch.vector on Freepik"
               />
               <p>
-                Financial companies, banks, and investment companies are
-                institutions dedicated to providing you these informations!
+                Financial companies such as banks and investment companies are
+                institutions dedicated to providing you these information!
               </p>
               <p>
                 To name a few there are: Vanguard, Fidelity, Charles Schwab,
@@ -104,8 +96,6 @@ function ResourceInvest() {
               </div>
             </article>
           </SwiperSlide>
-
-          
         </Swiper>
       </article>
     </section>
