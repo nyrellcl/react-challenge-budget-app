@@ -38,6 +38,25 @@ function ResourceInvest() {
           <SwiperSlide>
             <article className="resources-section__content__card">
               <Image
+                src={source3}
+                alt="https://www.freepik.com/free-vector/startup-managers-presenting-analyzing-sales-growth-chart-group-workers-with-heap-cash-rocket-bar-diagrams-with-arrow-heap-money_12291285.htm#query=illustrations%20invest&position=7&from_view=search&track=ais Image by pch.vector on Freepik"
+              />
+              <p>
+                Financial companies, banks, and investment companies are
+                institutions dedicated for providing you these informations!
+              </p>
+              <p>
+                To name a few there are: Vanguard, Fidelity, Charles Schwab,
+                Bank of America, and Chase. All these companies have all the
+                expert financial information you will need to better understand
+                your money!
+              </p>
+            </article>
+          </SwiperSlide>
+          
+          <SwiperSlide>
+            <article className="resources-section__content__card">
+              <Image
                 src={source1}
                 alt="https://www.freepik.com/free-vector/woman-investing-getting-profit_11236054.htm#query=illustrations%20invest&position=5&from_view=search&track=ais Image by pch.vector on Freepik"
               />
@@ -86,24 +105,7 @@ function ResourceInvest() {
             </article>
           </SwiperSlide>
 
-          <SwiperSlide>
-            <article className="resources-section__content__card">
-              <Image
-                src={source3}
-                alt="https://www.freepik.com/free-vector/startup-managers-presenting-analyzing-sales-growth-chart-group-workers-with-heap-cash-rocket-bar-diagrams-with-arrow-heap-money_12291285.htm#query=illustrations%20invest&position=7&from_view=search&track=ais Image by pch.vector on Freepik"
-              />
-              <p>
-                Financial companies, banks, and investment companies are
-                institutions dedicated for providing you these informations!
-              </p>
-              <p>
-                To name a few there are: Vanguard, Fidelity, Charles Schwab,
-                Bank of America, and Chase. All these companies have all the
-                expert financial information you will need to better understand
-                your money!
-              </p>
-            </article>
-          </SwiperSlide>
+          
         </Swiper>
       </article>
     </section>
