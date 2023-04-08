@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import source1 from "../../../public/assets/woman-invest.jpg";
-import source2 from "../../../public/assets/stock-chart.jpg";
-import source3 from "../../../public/assets/growth-chart.jpg";
-import { Navigation, Pagination, EffectCoverflow } from "swiper";
+import source1 from "../../public/assets/woman-invest.jpg"
+import source2 from "../../public/assets/stock-chart.jpg";
+import source3 from "../../public/assets/growth-chart.jpg";
+import { Navigation, Pagination} from "swiper";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 

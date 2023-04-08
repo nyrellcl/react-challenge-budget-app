@@ -1,10 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
-import Layout from './components/layout'
+import Layout from '../components/Layouts/layout'
 import Image from 'next/image'
 import heroImg from "../../public/assets/pexels-cottonbro-studio-3943716.jpg"
-import BarChart from './components/BarChart'
-import ResourceInvest from './components/ResourceInvest'
+import BarChart from '../components/Chart/BarChart'
+import ResourceInvest from '../components/ResourceInvest'
 
 function Investing() {
   return (
