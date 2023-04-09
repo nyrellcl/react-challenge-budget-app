@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import Layout from '../components/Layouts/layout'
 import Image from 'next/image'
-import heroImg from "../../public/assets/pexels-cottonbro-studio-3943716.jpg"
+import heroImg from "../../public/assets/plant-dollar.jpg"
 import BarChart from '../components/Chart/BarChart'
 import ResourceInvest from '../components/ResourceInvest'
 
@@ -29,7 +29,7 @@ function Investing() {
             <p>Investing doesn&apos;t have to be scary. In fact, what <strong>is</strong> scary is losing out on money that you could be gaining simply by not taking that step towards diversifying where your money is stored.</p>
 
             <div className='investing-content__card__image'>
-              <Image priority={true} src={heroImg} alt="Person Putting Coin in a Piggy Bank"/>
+              <Image priority={true} src={heroImg} alt="https://www.freepik.com/free-photo/closeup-shot-plant-dollar-banknotes-concept-investments_17463614.htm#query=investing&position=12&from_view=search&track=sphImage by wirestock on Freepik"/>
             </div>
 
             <p>Losing is scary, there&apos;s no shame in wanting to keep your money safe.</p>

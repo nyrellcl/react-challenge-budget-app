@@ -3,8 +3,19 @@ import data from "../data.json";
 import intro from "../../public/assets/illustration-intro.svg"
 import Image from "next/image";
 
+export async function getServerSideProps(){
+  const data = await import("../data.json");
+  return{
+    props:{
+      data: data.default
+    }
+  }
+}
+
+
 
 function InfoCards() {
+
   const [cardStates, setCardStates] = useState<boolean[]>(
     data.content.map(() => false)
   );
