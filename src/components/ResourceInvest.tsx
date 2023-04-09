@@ -3,7 +3,7 @@ import Image from "next/image";
 import source1 from "../../public/assets/woman-invest.jpg"
 import source2 from "../../public/assets/stock-chart.jpg";
 import source3 from "../../public/assets/growth-chart.jpg";
-import { Navigation, Pagination} from "swiper";
+import { Pagination} from "swiper";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -23,8 +23,7 @@ function ResourceInvest() {
           pagination={{
             clickable: true,
           }}
-          navigation={true}
-          modules={[Pagination, Navigation]}
+          modules={[Pagination]}
           className="mySwiper"
         >
           <SwiperSlide>
