@@ -4,17 +4,17 @@ export const SET_CALCULATED_DATA = "SET_CALCULATED_DATA";
 export const SET_FUTURE_VALUE = "SET_FUTURE_VALUE";
 
 interface BarChartProps {
-  years: number;
-  initial: number;
-  ROR: number;
-  contribution: number;
+  years: number,
+  initial: number,
+  ROR: number,
+  contribution: number,
   contributionInterval: string
 }
 
 interface Taxes {
-  inflation: number;
-  federal_tax_rate: number;
-  state_tax_rate: number;
+  inflation: number,
+  federal_tax_rate: number,
+  state_tax_rate: number,
 }
 
 export const setData = (data: BarChartProps) => ({
@@ -27,7 +27,7 @@ export const setTaxData = (taxData: Taxes) => ({
   taxData,
 });
 
-export const setCalculatedData = (calculatedData: any) => ({
+export const setCalculatedData = (calculatedData: number[]) => ({
   type: SET_CALCULATED_DATA,
   payload: calculatedData,
 });

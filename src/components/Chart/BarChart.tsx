@@ -22,7 +22,10 @@ function BarChart() {
   );
   const dispatch = useDispatch();
 
-  const labels = Array.from({ length: data.years }, (_, i) => `${i + 1}`);
+  const dataLabels = Array.from({ length: data.years }, (_, i) => `${i + 1}`);
+
+  const calculated: number[] = [];
+  let accumulatedContribution = 0;
 
   const handleDataSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -43,15 +46,12 @@ function BarChart() {
     dispatch(setData(newFormData));
     dispatch(setTaxData(newTaxData));
 
-    const calculated: number[] = [];
-    let accumulatedContribution = 0;
     for (let i = 1; i <= newFormData.years; i++) {
-      
       let contributionInterval = e.currentTarget.CONTRIBUTION_INTERVAL.value;
 
       switch (newFormData.contributionInterval) {
         case "twoWeeks":
-          contributionInterval = (newFormData.contribution * 26) / 12;
+          contributionInterval = (newFormData.contribution * 26);
           break;
 
         case "month":
@@ -69,16 +69,19 @@ function BarChart() {
       const futureValueCalculation =
         i === 1
           ? (newFormData.initial + accumulatedContribution) *
-            Math.pow(1 + newFormData.ROR / 100, (i - 1))
-            //calculates amount for subsequent years
-          : (calculated[i - 2] + accumulatedContribution) *
+            Math.pow(1 + newFormData.ROR / 100, i - 1) 
+          : //calculates amount for subsequent years
+            (calculated[i - 2] + contributionInterval ) *
             Math.pow(1 + newFormData.ROR / 100, 1);
 
+
       calculated.push(parseInt(futureValueCalculation.toFixed(2)));
+
     }
 
+
     dispatch(setCalculatedData(calculated));
-    dispatch(setFutureValueData(calculated[calculated.length - 1] ));
+    dispatch(setFutureValueData(calculated[calculated.length - 1]));
     e.currentTarget.reset();
   };
 
@@ -93,7 +96,7 @@ function BarChart() {
     const chart = new Chart(chartCanvas, {
       type: "bar",
       data: {
-        labels: labels,
+        labels: dataLabels,
         datasets: [
           {
             label: "Investment Amount",
