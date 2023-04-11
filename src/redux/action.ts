@@ -8,7 +8,7 @@ interface BarChartProps {
   initial: number,
   ROR: number,
   contribution: number,
-  contributionInterval: string
+  contributionInterval: string | number
 }
 
 interface Taxes {

@@ -51,14 +51,14 @@ function BarChart() {
 
       switch (newFormData.contributionInterval) {
         case "twoWeeks":
-          contributionInterval = (newFormData.contribution * 26);
+          contributionInterval = newFormData.contribution * 26;
           break;
 
         case "month":
-          contributionInterval = newFormData.contribution;
+          contributionInterval = newFormData.contribution * 12;
           break;
         case "year":
-          contributionInterval = newFormData.contribution / 12;
+          contributionInterval = newFormData.contribution;
           break;
         default:
           break;
@@ -69,16 +69,13 @@ function BarChart() {
       const futureValueCalculation =
         i === 1
           ? (newFormData.initial + accumulatedContribution) *
-            Math.pow(1 + newFormData.ROR / 100, i - 1) 
+            Math.pow(1 + newFormData.ROR / 100, i - 1)
           : //calculates amount for subsequent years
-            (calculated[i - 2] + contributionInterval ) *
+            (calculated[i - 2] + contributionInterval) *
             Math.pow(1 + newFormData.ROR / 100, 1);
 
-
       calculated.push(parseInt(futureValueCalculation.toFixed(2)));
-
     }
-
 
     dispatch(setCalculatedData(calculated));
     dispatch(setFutureValueData(calculated[calculated.length - 1]));
@@ -93,6 +90,8 @@ function BarChart() {
       return;
     }
 
+    if(calculatedData){
+
     const chart = new Chart(chartCanvas, {
       type: "bar",
       data: {
@@ -103,9 +102,33 @@ function BarChart() {
             data: calculatedData,
             borderRadius: 3,
             borderSkipped: false,
-            hoverBackgroundColor: "#76B5BC",
           },
-          //add tax data here
+          {
+            label: "Taxable Amount",
+            data: calculatedData.map((value, i) => {
+              const inflationFactor = Math.pow(
+                1 + taxData.inflation / 100,
+                data.years - i
+              );
+
+              const taxableAmount = value / inflationFactor;
+              const federalTaxAmount =
+                taxableAmount * (taxData.federal_tax_rate / 100);
+              const stateTaxAmount =
+                taxableAmount * (taxData.state_tax_rate / 100);
+              const totalTaxAmount = federalTaxAmount + stateTaxAmount;
+              const futureValueWithTax: number =
+                value -
+                totalTaxAmount -
+                accumulatedContribution;
+
+             
+              return futureValueWithTax.toFixed(2);
+            }),
+            backgroundColor: "#76B5BC",
+            borderRadius: 3,
+            borderSkipped: false,
+          },
         ],
       },
       options: {
@@ -137,9 +160,11 @@ function BarChart() {
         backgroundColor: "#EC755D",
       },
     });
+  
     return () => {
       chart.destroy();
     };
+  }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, calculatedData]);
 
@@ -177,7 +202,7 @@ function BarChart() {
         </fieldset>
 
         <fieldset>
-          <label htmlFor="ROR_INVEST">Rate of return:</label>
+          <label htmlFor="ROR_INVEST">Rate of return %:</label>
           <input
             type="number"
             name="ROR_INVEST"
