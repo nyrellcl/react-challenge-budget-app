@@ -17,7 +17,7 @@ const initialState = {
     federal_tax_rate: 25,
     state_tax_rate: 6,
   },
-  calculatedData: [],
+  calculatedData:[],
   futureValue: 0,
 };
 

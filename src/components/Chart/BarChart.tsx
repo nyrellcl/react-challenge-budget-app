@@ -10,12 +10,26 @@ import {
 } from "../../redux/action";
 import store from "../../redux/store";
 
+interface Data {
+  years: number;
+  initial: number;
+  ROR: number;
+  contribution: number;
+  contributionInterval: string;
+}
+
+interface TaxData {
+  inflation: number;
+  federal_tax_rate: number;
+  state_tax_rate: number;
+}
+
 function BarChart() {
   //redux
-  const data = useSelector((state: any) => state.data);
-  const taxData = useSelector((state: any) => state.taxData);
+  const data: Data = useSelector((state: any): Data => state.data);
+  const taxData: TaxData = useSelector((state: any): TaxData => state.taxData);
   const calculatedData: number[] = useSelector(
-    (state: any) => state.calculatedData.calculatedData
+    (state: any): number[] => state.calculatedData.calculatedData
   );
   const futureValue: number | null = useSelector(
     (state: any) => state.futureValue
@@ -24,12 +38,12 @@ function BarChart() {
 
   const dataLabels = Array.from({ length: data.years }, (_, i) => `${i + 1}`);
 
-  const calculated: number[] = [];
+  const calculatedInvestmentAmount: number[] = [];
   let accumulatedContribution = 0;
 
   const handleDataSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const newFormData = {
+    const newFormData: Data = {
       years: parseInt(e.currentTarget.YEARS.value),
       initial: parseInt(e.currentTarget.INITIAL.value),
       ROR: parseInt(e.currentTarget.ROR_INVEST.value),
@@ -37,10 +51,10 @@ function BarChart() {
       contributionInterval: e.currentTarget.CONTRIBUTION_INTERVAL.value,
     };
 
-    const newTaxData = {
-      inflation: parseInt(e.currentTarget.INFLATION.value),
-      federal_tax_rate: parseInt(e.currentTarget.FEDERAL_TAX.value),
-      state_tax_rate: parseInt(e.currentTarget.STATE_TAX.value),
+    const newTaxData: TaxData = {
+      inflation: parseFloat(e.currentTarget.INFLATION.value),
+      federal_tax_rate: parseFloat(e.currentTarget.FEDERAL_TAX.value),
+      state_tax_rate: parseFloat(e.currentTarget.STATE_TAX.value),
     };
 
     dispatch(setData(newFormData));
@@ -71,14 +85,20 @@ function BarChart() {
           ? (newFormData.initial + accumulatedContribution) *
             Math.pow(1 + newFormData.ROR / 100, i - 1)
           : //calculates amount for subsequent years
-            (calculated[i - 2] + contributionInterval) *
+            (calculatedInvestmentAmount[i - 2] + contributionInterval) *
             Math.pow(1 + newFormData.ROR / 100, 1);
 
-      calculated.push(parseInt(futureValueCalculation.toFixed(2)));
+      calculatedInvestmentAmount.push(
+        parseInt(futureValueCalculation.toFixed(2))
+      );
     }
 
-    dispatch(setCalculatedData(calculated));
-    dispatch(setFutureValueData(calculated[calculated.length - 1]));
+    dispatch(setCalculatedData(calculatedInvestmentAmount));
+    dispatch(
+      setFutureValueData(
+        calculatedInvestmentAmount[calculatedInvestmentAmount.length - 1]
+      )
+    );
     e.currentTarget.reset();
   };
 
@@ -90,81 +110,80 @@ function BarChart() {
       return;
     }
 
-    if(calculatedData){
+    if (calculatedData) {
+      const chart = new Chart(chartCanvas, {
+        type: "bar",
+        data: {
+          labels: dataLabels,
+          datasets: [
+            {
+              label: "Investment Amount",
+              data: calculatedData,
+              borderRadius: 3,
+              borderSkipped: false,
+            },
+            {
+              label: "Taxable Amount",
 
-    const chart = new Chart(chartCanvas, {
-      type: "bar",
-      data: {
-        labels: dataLabels,
-        datasets: [
-          {
-            label: "Investment Amount",
-            data: calculatedData,
-            borderRadius: 3,
-            borderSkipped: false,
-          },
-          {
-            label: "Taxable Amount",
-            data: calculatedData.map((value, i) => {
-              const inflationFactor = Math.pow(
-                1 + taxData.inflation / 100,
-                data.years - i
-              );
+              data: 
+              calculatedData.map((value: number, i) => {
+                const inflationFactor = Math.pow(
+                  1 + taxData.inflation / 100,
+                  data.years - i
+                );
 
-              const taxableAmount = value / inflationFactor;
-              const federalTaxAmount =
-                taxableAmount * (taxData.federal_tax_rate / 100);
-              const stateTaxAmount =
-                taxableAmount * (taxData.state_tax_rate / 100);
-              const totalTaxAmount = federalTaxAmount + stateTaxAmount;
-              const futureValueWithTax: number =
-                value -
-                totalTaxAmount -
-                accumulatedContribution;
+                const taxableAmount = value / inflationFactor;
+                const federalTaxAmount =
+                  taxableAmount * (taxData.federal_tax_rate / 100);
+                const stateTaxAmount =
+                  taxableAmount * (taxData.state_tax_rate / 100);
+                const totalTaxAmount = federalTaxAmount + stateTaxAmount;
+                const futureValueWithTax: number =
+                  value - totalTaxAmount - accumulatedContribution;
 
-             
-              return futureValueWithTax.toFixed(2);
-            }),
-            backgroundColor: "#76B5BC",
-            borderRadius: 3,
-            borderSkipped: false,
-          },
-        ],
-      },
-      options: {
-        layout: {
-          autoPadding: true,
+                return parseFloat(futureValueWithTax.toFixed(0));
+                
+              }),
+              backgroundColor: "#76B5BC",
+              borderRadius: 3,
+              borderSkipped: false,
+            },
+          ],
         },
-        plugins: {
-          title: {
-            display: true,
-            text: "Investment Calculation Chart",
+        options: {
+          layout: {
+            autoPadding: true,
           },
-        },
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: {
-              callback(tickValue) {
-                return `$${tickValue}`;
+          plugins: {
+            title: {
+              display: true,
+              text: "Investment Calculation Chart",
+            },
+          },
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                callback(tickValue) {
+                  return `$${tickValue}`;
+                },
+              },
+            },
+            x: {
+              grid: {
+                display: false,
               },
             },
           },
-          x: {
-            grid: {
-              display: false,
-            },
-          },
+          backgroundColor: "#EC755D",
         },
-        backgroundColor: "#EC755D",
-      },
-    });
-  
-    return () => {
-      chart.destroy();
-    };
-  }
+      });
+
+      return () => {
+        chart.destroy();
+      };
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, calculatedData]);
 
