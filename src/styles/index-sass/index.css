@@ -266,6 +266,13 @@ h2 {
     background: #FFFBF6;
     padding: 1rem;
     border-radius: 8px;
+    height: 34.375rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .main-app .info__container__card__sources {
+    margin-top: 0;
   }
   .main-app .info__container__card__sources li,
 .main-app .info__container__card__sources a {

@@ -275,8 +275,13 @@ h2 {
             background: $card-bg;
             padding: 1rem;
             border-radius: 8px;
+            height: rem(550);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
           }
           &__sources {
+            margin-top: 0;
             li,
             a {
               transition: all 250ms linear;
