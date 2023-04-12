@@ -94,8 +94,6 @@
   text-align: center;
 }
 .data-chart__form fieldset select {
-  background: transparent;
-  border: none;
   color: #000;
 }
 .data-chart__form .tax-heading {
