@@ -191,15 +191,6 @@ function BarChart() {
     //user input data section
     <section className="data-chart">
       <form className="data-chart__form" onSubmit={handleDataSubmit}>
-        {futureValue ? (
-          <p className="data-chart__form__plan">
-            Your plan produces <strong>${futureValue}</strong> in{" "}
-            <strong>{data.years} years</strong> if you contributed{" "}
-            <strong>
-              ${data.contribution} every {data.contributionInterval}
-            </strong>
-          </p>
-        ) : null}
         <fieldset>
           <label htmlFor="YEARS">Years to accumulate:</label>
           <input
@@ -279,6 +270,15 @@ function BarChart() {
         <button type="submit" className="data-submit">
           Submit
         </button>
+        {futureValue ? (
+          <p className="data-chart__form__plan">
+            Your plan produces <strong>${futureValue}</strong> in{" "}
+            <strong>{data.years} years</strong> if you contributed{" "}
+            <strong>
+              ${data.contribution} every {data.contributionInterval}
+            </strong>
+          </p>
+        ) : null}
       </form>
       <canvas ref={chartRef} width={400} height={400} />
     </section>

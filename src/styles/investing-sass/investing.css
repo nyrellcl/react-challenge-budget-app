@@ -103,7 +103,8 @@
 }
 .data-chart__form__plan {
   text-align: center;
-  padding: 1rem 0 0 0;
+  padding: 1rem 0;
+  width: 100%;
 }
 .data-chart__form .data-submit {
   display: flex;
@@ -209,7 +210,7 @@
   }
   .data-chart__form__plan {
     text-align: left;
-    padding-bottom: 2rem;
+    width: 30%;
   }
   .data-chart__form .data-submit {
     margin: 2rem 0;
