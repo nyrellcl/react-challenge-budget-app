@@ -26,14 +26,18 @@ interface TaxData {
 
 function BarChart() {
   //redux
-  const data: Data = useSelector((state: any): Data => state.data);
-  const taxData: TaxData = useSelector((state: any): TaxData => state.taxData);
+  const {
+    data,
+    taxData,
+    futureValue,
+  }: { data: Data; taxData: TaxData; futureValue: number } = useSelector(
+    (state: any) => state
+  );
+
   const calculatedData: number[] = useSelector(
     (state: any): number[] => state.calculatedData.calculatedData
   );
-  const futureValue: number | null = useSelector(
-    (state: any) => state.futureValue
-  );
+
   const dispatch = useDispatch();
 
   const dataLabels = Array.from({ length: data.years }, (_, i) => `${i + 1}`);
@@ -60,6 +64,8 @@ function BarChart() {
     dispatch(setData(newFormData));
     dispatch(setTaxData(newTaxData));
 
+    const initialInvestmentAmount = newFormData.initial;
+
     for (let i = 1; i <= newFormData.years; i++) {
       let contributionInterval = e.currentTarget.CONTRIBUTION_INTERVAL.value;
 
@@ -79,14 +85,17 @@ function BarChart() {
       }
 
       accumulatedContribution += contributionInterval;
+      const investmentAmount =
+        initialInvestmentAmount * (1 + newFormData.ROR / 100) +
+        contributionInterval;
 
       const futureValueCalculation =
         i === 1
-          ? (newFormData.initial + accumulatedContribution) *
-            Math.pow(1 + newFormData.ROR / 100, i - 1)
+          ? //calculates amount for first year
+            investmentAmount * Math.pow(1 + newFormData.ROR / 100, i - 1)
           : //calculates amount for subsequent years
             (calculatedInvestmentAmount[i - 2] + contributionInterval) *
-            Math.pow(1 + newFormData.ROR / 100, 1);
+            +Math.pow(1 + newFormData.ROR / 100, 1);
 
       calculatedInvestmentAmount.push(
         parseInt(futureValueCalculation.toFixed(2))
@@ -125,8 +134,7 @@ function BarChart() {
             {
               label: "Taxable Amount",
 
-              data: 
-              calculatedData.map((value: number, i) => {
+              data: calculatedData.map((value: number, i) => {
                 const inflationFactor = Math.pow(
                   1 + taxData.inflation / 100,
                   data.years - i
@@ -138,11 +146,9 @@ function BarChart() {
                 const stateTaxAmount =
                   taxableAmount * (taxData.state_tax_rate / 100);
                 const totalTaxAmount = federalTaxAmount + stateTaxAmount;
-                const futureValueWithTax: number =
-                  value - totalTaxAmount - accumulatedContribution;
+                const futureValueWithTax: number = value - totalTaxAmount;
 
-                return parseFloat(futureValueWithTax.toFixed(0));
-                
+                return parseInt(futureValueWithTax.toFixed(0));
               }),
               backgroundColor: "#76B5BC",
               borderRadius: 3,
@@ -212,7 +218,7 @@ function BarChart() {
         </fieldset>
 
         <fieldset>
-          <label htmlFor="ROR_INVEST">Rate of return %:</label>
+          <label htmlFor="ROR_INVEST">Annual rate of return %:</label>
           <input
             type="number"
             name="ROR_INVEST"
@@ -272,11 +278,10 @@ function BarChart() {
         </button>
         {futureValue ? (
           <p className="data-chart__form__plan">
-            Your plan produces <strong>${futureValue}</strong> in{" "}
-            <strong>{data.years} years</strong> if you contributed{" "}
-            <strong>
-              ${data.contribution} every {data.contributionInterval}
-            </strong>
+            In <strong>{data.years} years</strong>, if you contributed{" "}
+            <strong>${data.contribution}</strong> every{" "}
+            <strong>{data.contributionInterval}</strong>, you would accumulate{" "}
+            <strong>${futureValue}</strong> before taxes and inflation.
           </p>
         ) : null}
       </form>
