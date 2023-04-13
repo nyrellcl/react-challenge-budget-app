@@ -3,7 +3,7 @@
 
 ![](./public/react-challenge.png)
 
-This project is created using React, TypeScript and NextJS. 
+This project was created using NextJS[https://nextjs.org/], TypeScript[https://www.typescriptlang.org/], Redux[https://redux.js.org/] for state management, SCSS[https://sass-lang.com/] for styling. 
 
 # Overview
 I created this project to increase and better my understanding of Frontend frameworks and technologies. I've asked chatGPT to create a list of React challenges that I can take on to increase my understanding of various front-end concepts and problems. Below is the complete list of challenges I was given: 
