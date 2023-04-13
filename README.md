@@ -29,3 +29,35 @@ So far I've just completed the first challenge. As context, I decided to structu
 As an aspiring developer, creating projects is the most important task to constantly be doing. However, I realized that to take my project building to the next level, I need to create projects that people will ACTUALLY want to use and will keep using. Therefore, I decided to create a project that even I would use and reference to over and over again. By doing this, it allows me to think in real-world environments and think about how customers are driven to a product. 
 This page takes on topics that the whole world encounters every single day, to create a page that has resources that revolve around these experiences, can have the potential to be used as a constant point of reference. 
 
+# Investing Page Update: Apr. 13, 2023
+
+Investing page developed and added to the website.
+Main features and information: 
+- User is presented with an intro that explains what the page will be about
+- User is presented with an overview/summary of investing along with an image
+- User is presented with a section where they are able to slide through different cards of information. Each card has sources from different financial institutions and financial websites. 
+    - The slider feature was used using SwiperJS[https://swiperjs.com/]
+    - Slider feature has pagination built-in. Along with many other optional features, but felt that the pagination was enough for the user to properly navigate each slide
+- Final section is where the user is able to interact with an investment calculator along with a bar graph that displays their potential investment earnings over X amount of years they choose 
+    - Bar graph includes both amount before taxes and inflation and amount after taxes and inflation are applied
+
+## Investment Calculator Features and Bugs
+- User has the option to input information such as: 
+    - Amount of desired years they want to visualize how their investments will grow
+    - Their initial contribution with the minimum being $0
+    - The Annual Rate of Return. It is set to 7% by default since that is the most general rate of return used for calculating returns on investment. User is able to change this based on their preference
+    - The contribution interval amount. The user is able to input how much in dollars they plan to contribute 
+    - User is able to choose their contribution interval. For now the user is able to choose between bi-weekly, monthly, and yearly
+    - User is able to input their desired inflation percentage based on their preferences
+    - User is able to input their applicable federal tax percentage
+    - User is able to input their applicable state tax percentage
+- Bar chart displays the principal amounts before taxes and inflation which include:
+    - Their desired years, initial contribution, if any, contribution amount and interval,  and their desired annual rate of return 
+    - The information above will then be calculated and displayed on the graph
+- Bar chart displays the taxable amount after taxes and inflation are applied
+    - Taking into account the principal amount, taxes and inflation are applied to each year and amount and displayed alongside the principal amount.
+    - Gives the user two different results allowing for more information
+### Bugs
+- Currently calculations aren't 100% accurate. It is very close to 100% accuracy, however there are issues in my code that are currently preventing that. Currently working on solving that
+- Bar chart is not displayed upon render, but only displayed once the user inputs and submits the information
+
