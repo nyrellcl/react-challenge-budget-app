@@ -1,4 +1,4 @@
-export const SET_DATA = "SET_DATA";
+export const SET_INPUT_DATA = "SET_INPUT_DATA";
 export const SET_TAX_DATA = "SET_TAX_DATA";
 export const SET_CALCULATED_DATA = "SET_CALCULATED_DATA";
 export const SET_FUTURE_VALUE = "SET_FUTURE_VALUE";
@@ -17,9 +17,9 @@ interface Taxes {
   state_tax_rate: number,
 }
 
-export const setData = (data: BarChartProps) => ({
-  type: SET_DATA,
-  data,
+export const setInputData = (inputData: BarChartProps) => ({
+  type: SET_INPUT_DATA,
+  inputData,
 });
 
 export const setTaxData = (taxData: Taxes) => ({
@@ -33,6 +33,6 @@ export const setCalculatedData = (calculatedData: number[]) => ({
 });
 
 export const setFutureValueData = (futureValue: number | null) => ({
-  type: "SET_FUTURE_VALUE",
+  type: SET_FUTURE_VALUE,
   payload: futureValue,
 });

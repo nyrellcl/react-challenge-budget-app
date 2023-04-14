@@ -3,7 +3,7 @@ import { Chart } from "chart.js/auto";
 //redux
 import { useSelector, useDispatch, Provider } from "react-redux";
 import {
-  setData,
+  setInputData,
   setTaxData,
   setCalculatedData,
   setFutureValueData,
@@ -47,7 +47,7 @@ function BarChart() {
 
   const handleDataSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const newFormData: InputData = {
+    const newFormInputData: InputData = {
       years: parseInt(e.currentTarget.YEARS.value),
       initial: parseInt(e.currentTarget.INITIAL.value),
       ROR: parseInt(e.currentTarget.ROR_INVEST.value),
@@ -61,24 +61,24 @@ function BarChart() {
       state_tax_rate: parseFloat(e.currentTarget.STATE_TAX.value),
     };
 
-    dispatch(setData(newFormData));
+    dispatch(setInputData(newFormInputData));
     dispatch(setTaxData(newTaxData));
 
-    const initialInvestmentAmount = newFormData.initial;
+    const initialInvestmentAmount = newFormInputData.initial;
 
-    for (let i = 1; i <= newFormData.years; i++) {
+    for (let i = 1; i <= newFormInputData.years; i++) {
       let contributionInterval = e.currentTarget.CONTRIBUTION_INTERVAL.value;
 
-      switch (newFormData.contributionInterval) {
+      switch (newFormInputData.contributionInterval) {
         case "twoWeeks":
-          contributionInterval = newFormData.contribution * 26;
+          contributionInterval = newFormInputData.contribution * 26;
           break;
 
         case "month":
-          contributionInterval = newFormData.contribution * 12;
+          contributionInterval = newFormInputData.contribution * 12;
           break;
         case "year":
-          contributionInterval = newFormData.contribution;
+          contributionInterval = newFormInputData.contribution;
           break;
         default:
           break;
@@ -86,16 +86,16 @@ function BarChart() {
 
       accumulatedContribution += contributionInterval;
       const investmentAmount =
-        initialInvestmentAmount * (1 + newFormData.ROR / 100) +
+        initialInvestmentAmount * (1 + newFormInputData.ROR / 100) +
         contributionInterval;
 
       const futureValueCalculation =
         i === 1
           ? //calculates amount for first year
-            investmentAmount * Math.pow(1 + newFormData.ROR / 100, i - 1)
+            investmentAmount * Math.pow(1 + newFormInputData.ROR / 100, i - 1)
           : //calculates amount for subsequent years
             (calculatedInvestmentAmount[i - 2] + contributionInterval) *
-            +Math.pow(1 + newFormData.ROR / 100, 1);
+            +Math.pow(1 + newFormInputData.ROR / 100, 1);
 
       calculatedInvestmentAmount.push(
         parseInt(futureValueCalculation.toFixed(2))

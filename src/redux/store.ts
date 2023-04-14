@@ -1,9 +1,9 @@
 import { combineReducers  } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
-import { dataReducer, taxDataReducer, calculatedDataReducer, futureValueReducer } from "./reducers";
+import { inputDataReducer, taxDataReducer, calculatedDataReducer, futureValueReducer } from "./reducers";
 
 const rootReducer = combineReducers({
-    data: dataReducer,
+    inputData: inputDataReducer,
     taxData: taxDataReducer,
     calculatedData: calculatedDataReducer,
     futureValue: futureValueReducer

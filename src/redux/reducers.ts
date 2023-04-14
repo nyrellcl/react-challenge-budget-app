@@ -1,12 +1,12 @@
 import {
   SET_TAX_DATA,
-  SET_DATA,
+  SET_INPUT_DATA,
   SET_CALCULATED_DATA,
   SET_FUTURE_VALUE,
 } from "./action";
 
 const initialState = {
-  data: {
+  inputData: {
     years: 18,
     initial: 200,
     ROR: 7,
@@ -21,10 +21,10 @@ const initialState = {
   futureValue: 0,
 };
 
-export const dataReducer = (state = initialState.data, action: any) => {
+export const inputDataReducer = (state = initialState.inputData, action: any) => {
   switch (action.type) {
-    case SET_DATA:
-      return action.data;
+    case SET_INPUT_DATA:
+      return action.inputData;
     default:
       return state;
   }
