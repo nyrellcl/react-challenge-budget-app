@@ -2,12 +2,14 @@ import Head from "next/head";
 import InfoCards from "../components/InfoCards";
 import Nav from "../components/Layouts/Nav";
 import { useEffect } from "react";
+import Layout from "@/components/Layouts/layout";
 
 export default function Home() {
-
-  useEffect(()=>{
-    alert("The following information is not financial advice, but merely resources for your reference.")
-  }, [])
+  useEffect(() => {
+    alert(
+      "The following information is not financial advice, but merely resources for your reference."
+    );
+  }, []);
 
   return (
     <>
@@ -17,10 +19,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/assets/favicon.ico" />
       </Head>
-      <Nav />
-      <main className="main-app">
-        <InfoCards />
-      </main>
+      <Layout>
+        <main className="main-app">
+          <InfoCards />
+        </main>
+      </Layout>
     </>
   );
 }

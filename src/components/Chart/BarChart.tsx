@@ -10,7 +10,7 @@ import {
 } from "../../redux/action";
 import store from "../../redux/store";
 
-interface Data {
+interface InputData {
   years: number;
   initial: number;
   ROR: number;
@@ -27,10 +27,10 @@ interface TaxData {
 function BarChart() {
   //redux
   const {
-    data,
+    inputData ,
     taxData,
     futureValue,
-  }: { data: Data; taxData: TaxData; futureValue: number } = useSelector(
+  }: { inputData: InputData; taxData: TaxData; futureValue: number } = useSelector(
     (state: any) => state
   );
 
@@ -40,14 +40,14 @@ function BarChart() {
 
   const dispatch = useDispatch();
 
-  const dataLabels = Array.from({ length: data.years }, (_, i) => `${i + 1}`);
+  const dataYearLabels = Array.from({ length: inputData.years }, (_, i) => `${i + 1}`);
 
   const calculatedInvestmentAmount: number[] = [];
   let accumulatedContribution = 0;
 
   const handleDataSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const newFormData: Data = {
+    const newFormData: InputData = {
       years: parseInt(e.currentTarget.YEARS.value),
       initial: parseInt(e.currentTarget.INITIAL.value),
       ROR: parseInt(e.currentTarget.ROR_INVEST.value),
@@ -123,7 +123,7 @@ function BarChart() {
       const chart = new Chart(chartCanvas, {
         type: "bar",
         data: {
-          labels: dataLabels,
+          labels: dataYearLabels,
           datasets: [
             {
               label: "Investment Amount",
@@ -137,7 +137,7 @@ function BarChart() {
               data: calculatedData.map((value: number, i) => {
                 const inflationFactor = Math.pow(
                   1 + taxData.inflation / 100,
-                  data.years - i
+                  inputData.years - i
                 );
 
                 const taxableAmount = value / inflationFactor;
@@ -191,7 +191,7 @@ function BarChart() {
       };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, calculatedData]);
+  }, [inputData, calculatedData]);
 
   return (
     //user input data section
@@ -203,7 +203,7 @@ function BarChart() {
             name="YEARS"
             id="YEARS"
             type="number"
-            defaultValue={data.years}
+            defaultValue={inputData.years}
           />
         </fieldset>
 
@@ -213,7 +213,7 @@ function BarChart() {
             type="number"
             name="INITIAL"
             id="INITIAL"
-            defaultValue={data.initial}
+            defaultValue={inputData.initial}
           />
         </fieldset>
 
@@ -223,7 +223,7 @@ function BarChart() {
             type="number"
             name="ROR_INVEST"
             id="ROR_INVEST"
-            defaultValue={data.ROR}
+            defaultValue={inputData.ROR}
           />
         </fieldset>
 
@@ -232,7 +232,7 @@ function BarChart() {
           <input
             name="CONTRIBUTION"
             id="CONTRIBUTION"
-            defaultValue={data.contribution}
+            defaultValue={inputData.contribution}
           />
         </fieldset>
 
@@ -278,9 +278,9 @@ function BarChart() {
         </button>
         {futureValue ? (
           <p className="data-chart__form__plan">
-            In <strong>{data.years} years</strong>, if you contributed{" "}
-            <strong>${data.contribution}</strong> every{" "}
-            <strong>{data.contributionInterval}</strong>, you would accumulate{" "}
+            In <strong>{inputData.years} years</strong>, if you contributed{" "}
+            <strong>${inputData.contribution}</strong> every{" "}
+            <strong>{inputData.contributionInterval}</strong>, you would accumulate{" "}
             <strong>${futureValue}</strong> before taxes and inflation.
           </p>
         ) : null}

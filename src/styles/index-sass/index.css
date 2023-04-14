@@ -233,6 +233,7 @@ h2 {
   .intro p {
     padding-right: 5rem;
     padding-left: 0;
+    font-size: 1.5rem;
   }
   .intro__img-container {
     display: flex;
