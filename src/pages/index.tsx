@@ -2,7 +2,6 @@ import Head from "next/head";
 import InfoCards from "../components/InfoCards";
 import Nav from "../components/Layouts/Nav";
 import { useEffect } from "react";
-import Layout from "@/components/Layouts/layout";
 
 export default function Home() {
   useEffect(() => {
@@ -19,11 +18,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/assets/favicon.ico" />
       </Head>
-      <Layout>
-        <main className="main-app">
-          <InfoCards />
-        </main>
-      </Layout>
+      <Nav />
+      <main className="main-app">
+        <InfoCards />
+      </main>
     </>
   );
 }
