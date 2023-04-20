@@ -214,6 +214,7 @@ function BarChart() {
             name="INITIAL"
             id="INITIAL"
             defaultValue={inputData.initial}
+            min={0}
           />
         </fieldset>
 
@@ -224,6 +225,7 @@ function BarChart() {
             name="ROR_INVEST"
             id="ROR_INVEST"
             defaultValue={inputData.ROR}
+            min={0}
           />
         </fieldset>
 
@@ -233,6 +235,7 @@ function BarChart() {
             name="CONTRIBUTION"
             id="CONTRIBUTION"
             defaultValue={inputData.contribution}
+            min={0}
           />
         </fieldset>
 
@@ -254,6 +257,7 @@ function BarChart() {
             id="INFLATION"
             type="number"
             defaultValue={taxData.inflation}
+            min={0}
           />
 
           <label htmlFor="FEDERAL_TAX">Federal marginal tax rate %:</label>
@@ -262,6 +266,7 @@ function BarChart() {
             id="FEDERAL_TAX"
             type="number"
             defaultValue={taxData.federal_tax_rate}
+            min={0}
           />
 
           <label htmlFor="STATE_TAX">State marginal tax rate %:</label>
@@ -270,6 +275,7 @@ function BarChart() {
             id="STATE_TAX"
             type="number"
             defaultValue={taxData.state_tax_rate}
+            min={0}
           />
         </fieldset>
 
